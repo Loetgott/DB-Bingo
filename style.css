@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333; /* Hintergrundfarbe der Leiste */
+    background-color: #e61212; /* Hintergrundfarbe der Leiste */
 }
 
 /* Stil für jedes Listenelement */
@@ -32,5 +32,5 @@ body {
 
 /* Stil für Hover-Effekt */
 .navbar li a:hover {
-    background-color: #575757;
+    background-color: #ffeaea;
 }
