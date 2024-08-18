@@ -1,5 +1,36 @@
+/* Grundstil für die Navigation */
 body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f0f3f5;
     color: #282d37;
-    font-family: Verdana,sans-serif;
+}
+
+/* Stil für die Menüleiste */
+.navbar {
+    list-style-type: none;  /* Entfernt die Standard-Aufzählungspunkte */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* Hintergrundfarbe der Leiste */
+}
+
+/* Stil für jedes Listenelement */
+.navbar li {
+    float: left; /* Elemente horizontal ausrichten */
+}
+
+/* Stil für die Links in der Menüleiste */
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px; /* Abstand innerhalb des Elements */
+    text-decoration: none; /* Entfernt die Unterstreichung */
+}
+
+/* Stil für Hover-Effekt */
+.navbar li a:hover {
+    background-color: #575757;
 }
