@@ -32,6 +32,6 @@ body {
 
 /* Stil für Hover-Effekt */
 .navbar li a:hover {
-    background-color: #ffeaea;
+    background-color: #bbbbbb;
     color:#282d37;
 }
