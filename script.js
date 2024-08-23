@@ -1,13 +1,18 @@
 // Spielstand speichern
-async function saveGameScore(userId, score) {
-  try {
-    await db.collection("gameScores").doc(userId).set({
-      score: score
-    });
-    console.log("Spielstand gespeichert!");
-  } catch (error) {
-    console.error("Fehler beim Speichern des Spielstands:", error);
-  }
+function saveGameScore(playerId, score) {
+  // Sicherstellen, dass playerId ein String ist
+  const docRef = db.collection("scores").doc(String(playerId));
+  
+  docRef.set({
+    score: score,
+    timestamp: new Date()
+  })
+  .then(() => {
+    console.log("Spielstand erfolgreich gespeichert!");
+  })
+  .catch((error) => {
+    console.error("Fehler beim Speichern des Spielstands: ", error);
+  });
 }
 
 // Spielstand abrufen
