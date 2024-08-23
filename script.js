@@ -36,6 +36,15 @@ async function getDeviationName(devId){
   }
 }
 
-function buttonClicked(){
-  document.getElementById("testButton").innerText = getDeviationName("d1");
+async function buttonClicked() {
+  try {
+    // Warten auf die Promise von getDeviationName
+    const deviationName = await getDeviationName("d1");
+    
+    // Den Text des Buttons aktualisieren
+    document.getElementById("testButton").innerText = deviationName ? deviationName : "Keine Daten";
+  } catch (error) {
+    console.error("Fehler beim Aktualisieren des Buttons:", error);
+    document.getElementById("testButton").innerText = "Fehler";
+  }
 }
