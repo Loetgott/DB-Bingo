@@ -57,3 +57,7 @@ async function buttonClicked() {
     document.getElementById("testButton").innerText = "Fehler";
   }
 }
+
+function loadTable(){
+  
+}

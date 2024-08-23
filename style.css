@@ -35,3 +35,33 @@ body {
     background-color: #bbbbbb;
     color:#282d37;
 }
+
+/* Grundlegende Stile für die Tabelle */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* Stile für Tabellenzellen */
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Alternierende Zeilenfarben */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover-Effekt für Tabellenzeilen */
+tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Stile für den Tabellenrand */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
