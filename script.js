@@ -64,7 +64,7 @@ async function buttonClicked() {
 
 async function loadTable() {
   for (let i = 1; i < 26; i++) {
-      const element = document.getElementById("bingofield" + i);
+      const element = document.getElementById("bingoField" + i);
       
       if (element) {
           try {
