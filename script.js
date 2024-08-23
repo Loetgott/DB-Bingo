@@ -39,7 +39,7 @@ async function getDeviationField(devId) {
       console.log("Dokumentdaten:", doc.data());
       
       // Zugriff auf das Feld "d1"
-      const fieldValue = doc.data().devId; 
+      const fieldValue = doc.data()[devId]; 
       return fieldValue;
     } else {
       console.log("Kein Dokument mit dieser ID gefunden.");
