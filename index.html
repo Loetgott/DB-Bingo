@@ -16,10 +16,8 @@
       <li><a href="#logout">Logout</a></li>
     </ul>
   </nav>
-  <script src="script.js"></script>
-  <button onclick="saveGameScore(1,100)">hello</button>
-  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
   <script>
   // Firebase-Konfiguration
   const firebaseConfig = {
@@ -33,8 +31,11 @@
 
   // Firebase initialisieren
   const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-</script>
+    const db = firebase.firestore();
+  </script>
+  
+  <button onclick="saveGameScore(1,100)">hello</button>
+  <script src="script.js"></script>
 
 </body>
 </html>
