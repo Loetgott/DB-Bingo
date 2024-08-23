@@ -25,3 +25,17 @@ async function getGameScore(userId) {
     return null;
   }
 }
+
+async function getDeviationName(devId){
+  const doc = await db.collection("deviations").doc("deviations").get();
+  if (doc.exists) {
+    return doc.data().devId;
+  } else {
+    console.log("Kein Spielstand gefunden.");
+    return null;
+  }
+}
+
+function buttonClicked(){
+  document.getElementById("testButton").innerText = getDeviationName(d1);
+}
