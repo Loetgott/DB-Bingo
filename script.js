@@ -26,23 +26,32 @@ async function getGameScore(userId) {
   }
 }
 
-async function getDeviationName(devId){
-  const doc = await db.collection("deviations").doc("deviations").get();
-  if (doc.exists) {
-    return doc.data().devId;
-  } else {
-    console.log("Kein Spielstand gefunden.");
-    return null;
+async function getDeviationField() {
+  try {
+    // Zugriff auf das Dokument in der Sammlung "deviations"
+    const doc = await db.collection("deviations").doc("deviations").get();
+    
+    if (doc.exists) {
+      console.log("Dokumentdaten:", doc.data());
+      
+      // Zugriff auf das Feld "d1"
+      const fieldValue = doc.data().d1; 
+      return fieldValue;
+    } else {
+      console.log("Kein Dokument mit dieser ID gefunden.");
+      return "Keine Daten";
+    }
+  } catch (error) {
+    console.error("Fehler beim Abrufen der Abweichung:", error);
+    return "Fehler";
   }
 }
 
 async function buttonClicked() {
   try {
-    // Warten auf die Promise von getDeviationName
-    const deviationName = await getDeviationName("d1");
-    
-    // Den Text des Buttons aktualisieren
-    //document.getElementById("testButton").innerText = deviationName ? deviationName : "Keine Daten";
+    const fieldValue = await getDeviationField();
+    console.log("Abgerufener Wert:", fieldValue);
+    document.getElementById("testButton").innerText = fieldValue;
   } catch (error) {
     console.error("Fehler beim Aktualisieren des Buttons:", error);
     document.getElementById("testButton").innerText = "Fehler";
