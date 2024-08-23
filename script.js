@@ -61,9 +61,20 @@ async function buttonClicked() {
   }
 }
 
-async function loadTable(){
-  for(let i = 1; i < 26; i++){
-    document.getElementById("bingofield" + i).textContent = await getDeviationField("d" + i);
+async function loadTable() {
+  for (let i = 1; i < 26; i++) {
+      const element = document.getElementById("bingofield" + i);
+      
+      if (element) {
+          try {
+              const value = await getDeviationField("d" + i);
+              element.textContent = value;
+          } catch (error) {
+              console.error(`Fehler beim Abrufen des Werts für d${i}:`, error);
+          }
+      } else {
+          console.warn(`Element mit ID bingofield${i} nicht gefunden.`);
+      }
   }
 }
 
