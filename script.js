@@ -58,6 +58,8 @@ async function buttonClicked() {
   }
 }
 
-function loadTable(){
-  
+async function loadTable(){
+  for(let i = 1; i < 26; i++){
+    document.getElementById("bingofield" + i).innerText = await getDeviationField("d" + i);
+  }
 }
