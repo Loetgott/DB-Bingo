@@ -37,5 +37,5 @@ async function getDeviationName(devId){
 }
 
 function buttonClicked(){
-  document.getElementById("testButton").innerText = getDeviationName(d1);
+  document.getElementById("testButton").innerText = getDeviationName("d1");
 }
