@@ -29,7 +29,8 @@ async function getGameScore(userId) {
   }
 }
 
-async function getDeviationField() {
+async function getDeviationField(devId) {
+  console.log("suche nach Feld mit id " + devId + " ...")
   try {
     // Zugriff auf das Dokument in der Sammlung "deviations"
     const doc = await db.collection("deviations").doc("deviations").get();
@@ -38,7 +39,7 @@ async function getDeviationField() {
       console.log("Dokumentdaten:", doc.data());
       
       // Zugriff auf das Feld "d1"
-      const fieldValue = doc.data().d1; 
+      const fieldValue = doc.data().devId; 
       return fieldValue;
     } else {
       console.log("Kein Dokument mit dieser ID gefunden.");
