@@ -1,3 +1,20 @@
+function initalizeFirebase(){
+  // Firebase-Konfiguration
+  const firebaseConfig = {
+    apiKey: "REACT_APP_FIREBASE_API_KEY",
+    authDomain: "db-bingo.firebaseapp.com",
+    projectId: "db-bingo",
+    storageBucket: "db-bingo.appspot.com",
+    messagingSenderId: "37192930676",
+    appId: "1:37192930676:web:2d95e07e1f0697b8594821",
+  };
+
+    // Firebase initialisieren
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+}
+
+
 // Spielstand speichern
 function saveGameScore(playerId, score) {
   // Sicherstellen, dass playerId ein String ist
@@ -59,7 +76,9 @@ async function buttonClicked() {
 }
 
 async function loadTable(){
+  initalizeFirebase();
   for(let i = 1; i < 26; i++){
     document.getElementById("bingofield" + i).innerText = await getDeviationField("d" + i);
   }
 }
+
