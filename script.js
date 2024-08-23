@@ -42,7 +42,7 @@ async function buttonClicked() {
     const deviationName = await getDeviationName("d1");
     
     // Den Text des Buttons aktualisieren
-    document.getElementById("testButton").innerText = deviationName ? deviationName : "Keine Daten";
+    //document.getElementById("testButton").innerText = deviationName ? deviationName : "Keine Daten";
   } catch (error) {
     console.error("Fehler beim Aktualisieren des Buttons:", error);
     document.getElementById("testButton").innerText = "Fehler";
