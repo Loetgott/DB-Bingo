@@ -45,12 +45,13 @@ table {
 
 /* Stile für Tabellenzellen */
 td {
+    flex: 1; /* Jede Zelle nimmt gleichmäßig Platz ein */
     padding: 0;
     border: 1px solid #ddd;
     text-align: center;
-    width: 20%; /* Die Breite der Zellen als Prozentsatz der Tabellensbreite */
-    height: 0; /* Höhe auf 0 setzen, Höhe wird durch das Padding bestimmt */
-    position: relative; /* Positionierung für das Inline-Element */
+    position: relative;
+    width: 0; /* Breite auf 0 setzen, wird durch Flexbox bestimmt */
+    height: 0; /* Höhe auf 0 setzen, wird durch das padding bestimmt */
 }
 
 /* Alternierende Zeilenfarben */
