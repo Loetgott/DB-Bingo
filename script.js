@@ -57,6 +57,7 @@ function saveGameScore(playerId, score) {
 }
 
 let currentUserUID = null;
+let loggedIn = false;
 
 function handleLogin(event) {
   event.preventDefault();
@@ -67,7 +68,8 @@ function handleLogin(event) {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
+      const user = userCredential.user
+      loggedIn = true;
       currentUserUID = user.uid;
       console.log('User created:', user);
     })
@@ -91,6 +93,7 @@ function registrateUser(email,password){
     .then((userCredential) => {
       const user = userCredential.user;
       currentUserUID = user.uid;
+      window.location.href = '/table/table.html';
       console.log('User created:', user);
     })
     .catch((error) => {
@@ -108,6 +111,8 @@ function singIn(email, password) {
     .then((userCredential) => {   
       const user = userCredential.user;
       currentUserUID = user.uid;
+      loggedIn = true;
+      window.location.href = '/table/table.html';
       console.log('Benutzer angemeldet:', user);
     })
     .catch((error) => {
