@@ -52,19 +52,18 @@ table {
 
 /* Stile für Tabellenzellen */
 td {
-    width: 20%;
-    /* 100% / 5 Spalten = 20% */
-    height: 20%;
-    /* 100% / 5 Zeilen = 20% */
+    width: 20%; /* 100% / 5 Spalten = 20% */
+    height: 20%; /* 100% / 5 Zeilen = 20% */
     border: 1px solid black;
     text-align: center;
     vertical-align: middle;
-    overflow: hidden;
-    /* Verhindert, dass Text die Zellen sprengt */
-    white-space: nowrap;
-    /* Verhindert Zeilenumbrüche im Text */
-    text-overflow: ellipsis;
-    /* Zeigt "..." an, wenn der Text zu lang ist */
+    overflow: hidden; /* Verhindert, dass Text die Zellen sprengt */
+    white-space: nowrap; /* Verhindert Zeilenumbrüche im Text */
+    text-overflow: ellipsis; /* Zeigt "..." an, wenn der Text zu lang ist */
+    font-size: calc(2vmin); /* Dynamische Schriftgröße basierend auf der Viewport-Größe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Alternierende Zeilenfarben */
