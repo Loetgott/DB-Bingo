@@ -1,61 +1,31 @@
-// Deine Firebase Konfiguration und Initialisierung hier
+// Firebase-Konfigurationsdaten einfügen
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  // ...
 };
+firebase.initializeApp(firebaseConfig);
 
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+// Anmeldeformular erstellen
+const loginForm = document.getElementById('loginForm');
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Event Listener für den Login Button
-  document.getElementById('login-btn').addEventListener('click', function() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+// Anmeldeformular-Ereignis behandeln
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        console.log("Logged in as:", userCredential.user);
-        // Zeige den Inhalt der Website an
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-      })
-      .catch((error) => {
-        console.error("Error: ", error.code, error.message);
-      });
-  });
+  // E-Mail und Passwort aus dem Formular abrufen
+  const email = loginForm.email.value;
+  const password = loginForm.password.value;
 
-  // Event Listener für den Sign-Up Button
-  document.getElementById('signup-btn').addEventListener('click', function() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        console.log("Signed up as:", userCredential.user);
-        // Zeige den Inhalt der Website an
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-      })
-      .catch((error) => {
-        console.error("Error: ", error.code, error.message);
-      });
-  });
-
-  // Überprüfe den Authentifizierungsstatus bei Seitenaufruf
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      // Benutzer ist eingeloggt, zeige den Inhalt an
-      document.getElementById('login-form').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    } else {
-      // Kein Benutzer eingeloggt, zeige das Login-Formular an
-      document.getElementById('login-form').style.display = 'block';
-      document.getElementById('main-content').style.display = 'none';
-    }
-  });
+  // Benutzer anmelden
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Benutzer erfolgreich angemeldet
+      const user = userCredential.user;
+      console.log('Benutzer angemeldet:', user);
+    })
+    .catch((error) => {
+      // Fehler beim Anmelden
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error('Fehler beim Anmelden:', errorCode, errorMessage);
+    });
 });
