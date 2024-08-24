@@ -40,6 +40,7 @@ async function getDeviationField(devId) {
       
       // Zugriff auf das Feld "d1"
       const fieldValue = doc.data()[devId]; 
+      console.log(`Wert für ${devId}:`, fieldValue);
       return fieldValue;
     } else {
       console.log("Kein Dokument mit dieser ID gefunden.");
@@ -48,17 +49,6 @@ async function getDeviationField(devId) {
   } catch (error) {
     console.error("Fehler beim Abrufen der Abweichung:", error);
     return "Fehler";
-  }
-}
-
-async function buttonClicked() {
-  try {
-    const fieldValue = await getDeviationField();
-    console.log("Abgerufener Wert:", fieldValue);
-    document.getElementById("testButton").innerText = fieldValue;
-  } catch (error) {
-    console.error("Fehler beim Aktualisieren des Buttons:", error);
-    document.getElementById("testButton").innerText = "Fehler";
   }
 }
 
