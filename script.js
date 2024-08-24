@@ -37,7 +37,7 @@ async function loadTable() {
         console.error(`Fehler beim Abrufen des Werts für d${i}:`, error);
       }
     } else {
-      console.warn(`Element mit ID bingofield${i} nicht gefunden.`);
+      console.warn(`Element mit ID d${i} nicht gefunden.`);
     }
   }
 }

@@ -28,12 +28,6 @@
         const app = firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
-        // Lade das Login-Formular aus der login.html Datei
-        fetch('login.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('login-container').innerHTML = data;
-            });
         window.onload = loadTable();
     </script>
     
