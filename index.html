@@ -5,10 +5,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DB-Bingo</title>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+  <!-- Verwende type="module" für ES6-Module -->
+  <script type="module">
+    // Importiere die Firebase-Module
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
+    // Firebase-Konfiguration
+    const firebaseConfig = {
+      apiKey: "REACT_APP_FIREBASE_API_KEY",
+      authDomain: "db-bingo.firebaseapp.com",
+      projectId: "db-bingo",
+      storageBucket: "db-bingo.appspot.com",
+      messagingSenderId: "37192930676",
+      appId: "1:37192930676:web:2d95e07e1f0697b8594821",
+    };
+
+    // Firebase initialisieren
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Hier kannst du auch die restlichen Funktionen wie registrateUser, loadTable, etc. definieren
+    window.registrateUser = function(email, password) {
+      const auth = getAuth(app);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log('User created:', user);
+        })
+        .catch((error) => {
+          console.error('Error creating user:', error.code, error.message);
+        });
+    };
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -25,25 +55,6 @@
   </div>
 
   <button onclick="registrateUser('nnammlohl@gmail.com', 'testpasswort')">Button</button>
-
-  <!-- Dein Skript -->
-  <script>
-    // Firebase-Konfiguration
-    const firebaseConfig = {
-      apiKey: "REACT_APP_FIREBASE_API_KEY",
-      authDomain: "db-bingo.firebaseapp.com",
-      projectId: "db-bingo",
-      storageBucket: "db-bingo.appspot.com",
-      messagingSenderId: "37192930676",
-      appId: "1:37192930676:web:2d95e07e1f0697b8594821",
-    };
-
-    // Firebase initialisieren
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-  </script>
-
-  <script src="script.js"></script>
 </body>
 
 </html>
