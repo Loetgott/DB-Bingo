@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <!-- Hauptinhalt deiner Seite -->
   <div id="main-content">
     <nav>
@@ -23,11 +22,23 @@
       </ul>
     </nav>
   </div>
-</body>
+  <script src = "script.js"></script>
+  <script>
+    // Firebase-Konfiguration
+    const firebaseConfig = {
+      apiKey: "REACT_APP_FIREBASE_API_KEY",
+      authDomain: "db-bingo.firebaseapp.com",
+      projectId: "db-bingo",
+      storageBucket: "db-bingo.appspot.com",
+      messagingSenderId: "37192930676",
+      appId: "1:37192930676:web:2d95e07e1f0697b8594821",
+    };
 
-</html>
-
-</div>
+    // Firebase initialisieren
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  <button onclick="registrateUser('nnammlohl@gmail.com', 'testpasswort')">Button</button>
 </body>
 
 </html>
