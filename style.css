@@ -100,19 +100,22 @@ nav {
     text-align: center;
 }
 
+/* Stil für die Login-Warnung */
 .login-warning {
-    max-width: 500px;
-    margin: 100px auto;
+    max-width: 400px;
+    margin: 100px auto; /* Zentriert den Container */
     padding: 20px;
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
-    border-radius: 4px;
+    background-color: #fff3cd; /* Hintergrundfarbe für Warnungen */
+    color: #856404; /* Textfarbe für Warnungen */
+    border: 1px solid #ffeeba; /* Randfarbe für Warnungen */
+    border-radius: 8px;
     text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Schatten für Warnung */
 }
 
 .login-warning h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Abstand unter der Überschrift */
+    color: #856404; /* Farbe der Überschrift */
 }
 
 .login-warning p {
@@ -127,8 +130,6 @@ nav {
 .login-warning a:hover {
     color: #c00;
 }
-
-
 
 /* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 table {
