@@ -44,23 +44,26 @@
 
 <body>
   <!-- Hauptinhalt deiner Seite -->
-  <div id="main-content">
-    <nav>
-      <ul class="navbar">
-        <li><a href="/table/table.html">Meine Tabelle</a></li>
-        <li><a href="/leaderboard/leaderboard.html">Leaderboard</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form onsubmit="return handleLogin(event)">
+  <nav>
+    <ul class="navbar">
+      <li><a href="/table/table.html">Meine Tabelle</a></li>
+      <li><a href="/leaderboard/leaderboard.html">Leaderboard</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hauptinhalt deiner Seite -->
+  <div class="main-content">
+    <div class="login-container">
+      <h2>Login</h2>
+      <form onsubmit="return handleLogin(event)">
         <input type="email" id="email" placeholder="E-Mail" required>
         <input type="password" id="password" placeholder="Passwort" required>
         <button type="submit">Login</button>
-    </form>
-    <div id="error-message"></div> <!-- Container für Fehlermeldungen -->
+      </form>
+      <div id="error-message"></div> <!-- Container für Fehlermeldungen -->
+    </div>
+  </div>
 </div>
   <!--<button onclick="registrateUser('nnamlohl@gmail.com', 'testPasswort1234')">Button</button>-->
 </body>
