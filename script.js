@@ -58,6 +58,32 @@ function saveGameScore(playerId, score) {
 
 let currentUserUID = null;
 
+function handleLogin(event) {
+  event.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  if (email && password) {
+    const auth = getAuth(app);
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      currentUserUID = user.uid;
+      console.log('User created:', user);
+    })
+    .catch((error) => {
+      if (error.code === 'auth/email-already-in-use') {
+        console.error("E-Mail-Adresse ist bereits registriert.");
+        singIn(email,password);
+      } else {
+        console.error("Fehler:", error.code, error.message);
+      }
+    });
+  } else {
+      document.getElementById('error-message').textContent = 'Bitte alle Felder ausfüllen!';
+  }
+}
+
 function registrateUser(email,password){
   const auth = getAuth(app);
 
@@ -68,9 +94,12 @@ function registrateUser(email,password){
       console.log('User created:', user);
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error('Error creating user:', errorCode, errorMessage);
+      if (error.code === 'auth/email-already-in-use') {
+        console.error("E-Mail-Adresse ist bereits registriert.");
+        singIn(email,password);
+      } else {
+        console.error("Fehler:", error.code, error.message);
+      }
     });
 }
 
