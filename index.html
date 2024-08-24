@@ -54,6 +54,8 @@
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
         console.log('User created:', user);
+        setLoggedIn(true);
+        setUserId(user.uid);
         window.location.href = '/table/table.html';
       } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
@@ -69,6 +71,8 @@
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
+        setLoggedIn(true);
+        setUserId(user.uid);
         console.log('Benutzer angemeldet:', user);
         window.location.href = '/table/table.html';
       } catch (error) {
