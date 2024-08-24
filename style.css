@@ -100,6 +100,35 @@ nav {
     text-align: center;
 }
 
+.login-warning {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.login-warning h2 {
+    margin-bottom: 10px;
+}
+
+.login-warning p {
+    margin-top: 0;
+}
+
+.login-warning a {
+    color: #e61212;
+    text-decoration: underline;
+}
+
+.login-warning a:hover {
+    color: #c00;
+}
+
+
 
 /* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 table {

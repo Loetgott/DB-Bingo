@@ -74,11 +74,19 @@
         // Firebase initialisieren
         const app = firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        if(isLoggedIn()){
-            window.onload = loadTable();
-        }else{
-            window.location.href = "../index.html"
-        }
+        window.onload = function () {
+            if (isLoggedIn()) {
+                loadTable();
+            } else {
+                const contentDiv = document.getElementById("content");
+                contentDiv.innerHTML = `
+                    <div class="login-warning">
+                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+                    </div>
+                `;
+            }
+        };
         
     </script>
 </body>
