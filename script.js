@@ -88,10 +88,6 @@ function singIn(email, password) {
     });
 }
 
-function isLoggedIn(){
-  if(currentUserUID == null){
-    return false;
-  }else{
-    return true;
-  }
+function isLoggedIn() {
+  return currentUserUID !== null;
 }
