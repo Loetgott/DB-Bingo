@@ -54,7 +54,7 @@ async function getDeviationField(devId) {
 
 async function loadTable() {
   for (let i = 1; i < 26; i++) {
-      const element = document.getElementById("bingoField" + i);
+      const element = document.getElementById("d" + i);
       
       if (element) {
           try {
