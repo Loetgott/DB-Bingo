@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DB-Bingo</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="login.js" defer></script>
 </head>
+
 <body>
+
+  <!-- Hier wird das Login-Formular eingebunden -->
+  <div id="login-container">
+    <!-- Login-Formular wird hier geladen -->
+  </div>
+
+  <!-- Inhalt deiner Seite -->
+  <h1>Willkommen auf meiner Seite!</h1>
+
+  <!-- Dein weiteres JavaScript -->
+  <script>
+    // Lade das Login-Formular aus der login.html Datei
+    fetch('login.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('login-container').innerHTML = data;
+      });
+  </script>
+
   <!-- Menüleiste -->
   <nav>
     <ul class="navbar">
@@ -18,23 +40,24 @@
   <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
   <script>
-  // Firebase-Konfiguration
-  const firebaseConfig = {
-    apiKey: "REACT_APP_FIREBASE_API_KEY",
-    authDomain: "db-bingo.firebaseapp.com",
-    projectId: "db-bingo",
-    storageBucket: "db-bingo.appspot.com",
-    messagingSenderId: "37192930676",
-    appId: "1:37192930676:web:2d95e07e1f0697b8594821",
-  };
+    // Firebase-Konfiguration
+    const firebaseConfig = {
+      apiKey: "REACT_APP_FIREBASE_API_KEY",
+      authDomain: "db-bingo.firebaseapp.com",
+      projectId: "db-bingo",
+      storageBucket: "db-bingo.appspot.com",
+      messagingSenderId: "37192930676",
+      appId: "1:37192930676:web:2d95e07e1f0697b8594821",
+    };
 
     // Firebase initialisieren
     const app = firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
   </script>
-  
-  <button id = "testButton" onclick="buttonClicked()">test</button>
+
+  <button id="testButton" onclick="buttonClicked()">test</button>
   <script src="script.js"></script>
 
 </body>
+
 </html>

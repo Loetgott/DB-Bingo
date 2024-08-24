@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Bar Example</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="login.js" defer></script>
 </head>
+
 <body>
+    <!-- Hier wird das Login-Formular eingebunden -->
+    <div id="login-container">
+        <!-- Login-Formular wird hier geladen -->
+    </div>
+
+    <!-- Dein weiteres JavaScript -->
+    <script>
+        // Lade das Login-Formular aus der login.html Datei
+        fetch('login.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('login-container').innerHTML = data;
+            });
+    </script>
 
     <!-- Menüleiste -->
     <nav>
@@ -18,4 +35,5 @@
     </nav>
 
 </body>
+
 </html>
