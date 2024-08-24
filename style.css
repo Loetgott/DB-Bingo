@@ -14,6 +14,7 @@ nav {
     width: 100%;
     background-color: #e61212; /* Hintergrundfarbe der Leiste */
     z-index: 1000; /* Stellt sicher, dass die Leiste über anderen Inhalten liegt */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Schatteneffekt nach unten */
 }
 
 .navbar {
