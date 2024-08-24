@@ -55,18 +55,13 @@
   </div>
   <div class="login-container">
     <h2>Login</h2>
-    <form onsubmit="loginUser(event)">
-      <label for="email">E-Mail:</label>
-      <input type="email" id="email" placeholder="E-Mail eingeben" required>
-
-      <label for="password">Passwort:</label>
-      <input type="password" id="password" placeholder="Passwort eingeben" required>
-
-      <button type="submit">Einloggen</button>
-
-      <p id="error-message" style="color: red;"></p> <!-- Hier werden Fehler angezeigt -->
+    <form onsubmit="return handleLogin(event)">
+        <input type="email" id="email" placeholder="E-Mail" required>
+        <input type="password" id="password" placeholder="Passwort" required>
+        <button type="submit">Login</button>
     </form>
-  </div>
+    <div id="error-message"></div> <!-- Container für Fehlermeldungen -->
+</div>
   <!--<button onclick="registrateUser('nnamlohl@gmail.com', 'testPasswort1234')">Button</button>-->
 </body>
 

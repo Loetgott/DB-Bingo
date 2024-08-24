@@ -1,78 +1,126 @@
-/* Grundstil für die Navigation */
+/* Grundstil für den gesamten Körper */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f3f5;
     color: #282d37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Höhe des Viewports */
 }
 
-/* Stil für die Menüleiste */
+/* Stil für das Login-Formular-Container */
+.login-container {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Stil für die Überschrift im Formular */
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #e61212; /* Gleiche Farbe wie die Navigationsleiste */
+}
+
+/* Stil für die Eingabefelder */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Stil für den Login-Button */
+.login-container button[type="submit"] {
+    width: 100%;
+    background-color: #e61212; /* Gleiche Farbe wie die Navigationsleiste */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button[type="submit"]:hover {
+    background-color: #c51111; /* Etwas dunklerer Farbton für Hover-Effekt */
+}
+
+/* Stil für Fehlermeldungen */
+.login-container #error-message {
+    color: #e61212; /* Gleiche Farbe wie die Navigationsleiste */
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Stil für die Menüleiste (falls auf der Seite verwendet) */
 .navbar {
-    list-style-type: none;  /* Entfernt die Standard-Aufzählungspunkte */
+    list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #e61212; /* Hintergrundfarbe der Leiste */
+    background-color: #e61212;
 }
 
-/* Stil für jedes Listenelement */
 .navbar li {
-    float: left; /* Elemente horizontal ausrichten */
+    float: left;
 }
 
-/* Stil für die Links in der Menüleiste */
 .navbar li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 20px; /* Abstand innerhalb des Elements */
-    text-decoration: none; /* Entfernt die Unterstreichung */
+    padding: 14px 20px;
+    text-decoration: none;
 }
 
-/* Stil für Hover-Effekt */
 .navbar li a:hover {
     background-color: #bbbbbb;
-    color:#282d37;
+    color: #282d37;
 }
 
-/* Grundlegende Stile für die Tabelle */
+/* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 table {
-    width: 100vmin; /* 100% des kleineren Viewport-Maßes (Höhe oder Breite) */
-    height: 100vmin; /* 100% des kleineren Viewport-Maßes */
+    width: 100vmin;
+    height: 100vmin;
     border-collapse: collapse;
 }
 
-/* Stile für Tabellenzellen */
 td {
-    width: 20%; /* 100% / 5 Spalten = 20% */
-    height: 20%; /* 100% / 5 Zeilen = 20% */
+    width: 20%;
+    height: 20%;
     border: 1px solid black;
     text-align: center;
     vertical-align: middle;
-    overflow: hidden; /* Verhindert, dass Text die Zellen sprengt */
-    white-space: normal; /* Erlaubt Zeilenumbrüche */
-    word-wrap: break-word; /* Bricht lange Wörter um, damit sie in die Zelle passen */
-    font-size: calc(2vmin); /* Dynamische Schriftgröße basierend auf der Viewport-Größe */
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: calc(2vmin);
     display: table-cell;
     justify-content: center;
     align-items: center;
-    padding: 5px; /* Optional: Innenabstand, um Text vom Rand zu entfernen */
+    padding: 5px;
     box-sizing: border-box;
 }
 
-/* Alternierende Zeilenfarben */
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Hover-Effekt für Tabellenzeilen */
 tbody td:hover {
     background-color: #e0e0e0;
 }
 
-/* Stile für den Tabellenrand */
 table, th, td {
     border: 1px solid #ddd;
 }
-
