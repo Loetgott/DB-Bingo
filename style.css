@@ -67,7 +67,7 @@ tbody tr:nth-child(even) {
 }
 
 /* Hover-Effekt für Tabellenzeilen */
-tbody tr:hover {
+tbody td:hover {
     background-color: #e0e0e0;
 }
 
