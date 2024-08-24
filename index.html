@@ -8,6 +8,7 @@
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,7 +23,10 @@
       </ul>
     </nav>
   </div>
-  <script src = "script.js"></script>
+
+  <button onclick="registrateUser('nnammlohl@gmail.com', 'testpasswort')">Button</button>
+
+  <!-- Dein Skript -->
   <script>
     // Firebase-Konfiguration
     const firebaseConfig = {
@@ -38,7 +42,8 @@
     const app = firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
   </script>
-  <button onclick="registrateUser('nnammlohl@gmail.com', 'testpasswort')">Button</button>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
