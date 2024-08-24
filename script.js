@@ -25,7 +25,7 @@ async function getDeviationField(devId) {
 }
 
 async function loadTable() {
-  registrateUser("nnamlohl@gmail.com","test");
+  //registrateUser("nnamlohl@gmail.com","test");
   for (let i = 1; i < 26; i++) {
     const element = document.getElementById("d" + i);
 
