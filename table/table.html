@@ -10,6 +10,25 @@
 </head>
 
 <body>
+
+    <!-- Hier wird das Login-Formular eingebunden -->
+    <div id="login-container">
+        <!-- Login-Formular wird hier geladen -->
+    </div>
+
+    <!-- Inhalt deiner Seite -->
+    <h1>Willkommen auf meiner Seite!</h1>
+
+    <!-- Dein weiteres JavaScript -->
+    <script>
+        // Lade das Login-Formular aus der login.html Datei
+        fetch('login.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('login-container').innerHTML = data;
+            });
+    </script>
+    
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
     <script>
