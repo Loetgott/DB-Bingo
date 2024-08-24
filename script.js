@@ -1,6 +1,3 @@
-
-
-
 async function getDeviationField(devId) {
   console.log("suche nach Feld mit id " + devId + " ...")
   try {
@@ -59,38 +56,42 @@ function saveGameScore(playerId, score) {
     });
 }
 
+let currentUserUID = null;
+
 function registrateUser(email,password){
   const auth = getAuth(app);
 
-  // Create a new user account
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // User successfully created
       const user = userCredential.user;
+      currentUserUID = user.uid;
       console.log('User created:', user);
-      // Redirect to a welcome page or perform other actions
     })
     .catch((error) => {
-      // Handle registration errors
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error('Error creating user:', errorCode, errorMessage);
-      // Display an error message to the user
     });
 }
 
 function singIn(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Benutzer erfolgreich angemeldet
+    .then((userCredential) => {   
       const user = userCredential.user;
+      currentUserUID = user.uid;
       console.log('Benutzer angemeldet:', user);
     })
     .catch((error) => {
-      // Fehler beim Anmelden
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error('Fehler beim Anmelden:', errorCode, errorMessage);
     });
 }
 
+function isLoggedIn(){
+  if(currentUserUID == null){
+    return false;
+  }else{
+    return true;
+  }
+}

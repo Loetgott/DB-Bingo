@@ -62,9 +62,8 @@
         </tbody>
     </table>
     <script>
-        // Firebase-Konfiguration
         const firebaseConfig = {
-            apiKey: "REACT_APP_FIREBASE_API_KEY",
+            apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
             authDomain: "db-bingo.firebaseapp.com",
             projectId: "db-bingo",
             storageBucket: "db-bingo.appspot.com",
@@ -75,8 +74,12 @@
         // Firebase initialisieren
         const app = firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-
-        window.onload = loadTable();
+        if(!isLoggedIn()){
+            window.onload = loadTable();
+        }else{
+            window.location.href = "../index.html"
+        }
+        
     </script>
 </body>
 
