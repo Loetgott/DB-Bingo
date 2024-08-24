@@ -9,16 +9,19 @@ body {
 
 /* Stil für die Menüleiste */
 .navbar {
-    list-style-type: none;  /* Entfernt die Standard-Aufzählungspunkte */
+    list-style-type: none;
+    /* Entfernt die Standard-Aufzählungspunkte */
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #e61212; /* Hintergrundfarbe der Leiste */
+    background-color: #e61212;
+    /* Hintergrundfarbe der Leiste */
 }
 
 /* Stil für jedes Listenelement */
 .navbar li {
-    float: left; /* Elemente horizontal ausrichten */
+    float: left;
+    /* Elemente horizontal ausrichten */
 }
 
 /* Stil für die Links in der Menüleiste */
@@ -26,32 +29,42 @@ body {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 20px; /* Abstand innerhalb des Elements */
-    text-decoration: none; /* Entfernt die Unterstreichung */
+    padding: 14px 20px;
+    /* Abstand innerhalb des Elements */
+    text-decoration: none;
+    /* Entfernt die Unterstreichung */
 }
 
 /* Stil für Hover-Effekt */
 .navbar li a:hover {
     background-color: #bbbbbb;
-    color:#282d37;
+    color: #282d37;
 }
 
 /* Grundlegende Stile für die Tabelle */
 table {
-    width: 100vmin; /* 100% des kleineren Viewport-Maßes (Höhe oder Breite) */
-    height: 100vmin; /* 100% des kleineren Viewport-Maßes */
+    width: 100vmin;
+    /* 100% des kleineren Viewport-Maßes (Höhe oder Breite) */
+    height: 100vmin;
+    /* 100% des kleineren Viewport-Maßes */
     border-collapse: collapse;
 }
 
 /* Stile für Tabellenzellen */
 td {
-    flex: 1; /* Jede Zelle nimmt gleichmäßig Platz ein */
-    padding: 0;
-    border: 1px solid #ddd;
+    width: 20%;
+    /* 100% / 5 Spalten = 20% */
+    height: 20%;
+    /* 100% / 5 Zeilen = 20% */
+    border: 1px solid black;
     text-align: center;
-    position: relative;
-    width: 0; /* Breite auf 0 setzen, wird durch Flexbox bestimmt */
-    height: 0; /* Höhe auf 0 setzen, wird durch das padding bestimmt */
+    vertical-align: middle;
+    overflow: hidden;
+    /* Verhindert, dass Text die Zellen sprengt */
+    white-space: nowrap;
+    /* Verhindert Zeilenumbrüche im Text */
+    text-overflow: ellipsis;
+    /* Zeigt "..." an, wenn der Text zu lang ist */
 }
 
 /* Alternierende Zeilenfarben */
@@ -65,7 +78,8 @@ tbody tr:hover {
 }
 
 /* Stile für den Tabellenrand */
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
-
