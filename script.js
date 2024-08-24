@@ -60,9 +60,7 @@ let currentUserUID = null;
 let loggedIn = false;
 
 function setLoggedIn(nLoggedIn){
-  console.log("eingeloggt!");
   loggedIn = nLoggedIn;
-  console.log(loggedIn);
 }
 
 function getLoggedIn(){
