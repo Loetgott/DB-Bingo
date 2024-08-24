@@ -38,9 +38,9 @@ body {
 
 /* Grundlegende Stile für die Tabelle */
 table {
-    width: 100%;
+    width: 100vmin; /* 100% des kleineren Viewport-Maßes (Höhe oder Breite) */
+    height: 100vmin; /* 100% des kleineren Viewport-Maßes */
     border-collapse: collapse;
-    margin: 20px 0;
 }
 
 /* Stile für Tabellenzellen */
