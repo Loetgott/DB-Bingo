@@ -27,7 +27,7 @@
     const db = getFirestore(app);
 
     // Hier kannst du auch die restlichen Funktionen wie registrateUser, loadTable, etc. definieren
-    window.registrateUser = function(email, password) {
+    window.registrateUser = function (email, password) {
       const auth = getAuth(app);
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
