@@ -58,12 +58,29 @@
       <h2>Login</h2>
       <form onsubmit="return handleLogin(event)">
         <input type="email" id="email" placeholder="E-Mail" required>
-        <input type="password" id="password" placeholder="Passwort" required>
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Passwort" required>
+          <button type="button" class="show-password" onclick="togglePassword()">👁️</button>
+        </div>
         <button type="submit">Login</button>
       </form>
       <div id="error-message"></div> <!-- Container für Fehlermeldungen -->
     </div>
   </div>
+
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById('password');
+      const showPasswordButton = document.querySelector('.show-password');
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        showPasswordButton.textContent = '🙈';
+      } else {
+        passwordField.type = 'password';
+        showPasswordButton.textContent = '👁️';
+      }
+    }
+  </script>
 </div>
   <!--<button onclick="registrateUser('nnamlohl@gmail.com', 'testPasswort1234')">Button</button>-->
 </body>
