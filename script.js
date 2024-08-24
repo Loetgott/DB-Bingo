@@ -59,69 +59,6 @@ function saveGameScore(playerId, score) {
 let currentUserUID = null;
 let loggedIn = false;
 
-function handleLogin(event) {
-  event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  if (email && password) {
-    const auth = getAuth(app);
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user
-      loggedIn = true;
-      currentUserUID = user.uid;
-      console.log('User created:', user);
-    })
-    .catch((error) => {
-      if (error.code === 'auth/email-already-in-use') {
-        console.error("E-Mail-Adresse ist bereits registriert.");
-        singIn(email,password);
-      } else {
-        console.error("Fehler:", error.code, error.message);
-      }
-    });
-  } else {
-      document.getElementById('error-message').textContent = 'Bitte alle Felder ausfüllen!';
-  }
-}
-
-function registrateUser(email,password){
-  const auth = getAuth(app);
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      currentUserUID = user.uid;
-      window.location.href = '/table/table.html';
-      console.log('User created:', user);
-    })
-    .catch((error) => {
-      if (error.code === 'auth/email-already-in-use') {
-        console.error("E-Mail-Adresse ist bereits registriert.");
-        singIn(email,password);
-      } else {
-        console.error("Fehler:", error.code, error.message);
-      }
-    });
-}
-
-function singIn(email, password) {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {   
-      const user = userCredential.user;
-      currentUserUID = user.uid;
-      loggedIn = true;
-      window.location.href = '/table/table.html';
-      console.log('Benutzer angemeldet:', user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error('Fehler beim Anmelden:', errorCode, errorMessage);
-    });
-}
-
 function isLoggedIn() {
   return currentUserUID !== null;
 }
