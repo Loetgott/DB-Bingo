@@ -59,18 +59,18 @@ function saveGameScore(playerId, score) {
 let currentUserUID = null;
 let loggedIn = false;
 
-function setLoggedIn(nLoggedIn){
-  loggedIn = nLoggedIn;
+function setLoggedIn(nLoggedIn) {
+  localStorage.setItem('loggedIn', nLoggedIn);
 }
 
-function getLoggedIn(){
-  return loggedIn;
+function getLoggedIn() {
+  return localStorage.getItem('loggedIn') === 'true';
 }
 
-function setUserId(nUserId){
-  currentUserUID = nUserId;
+function setUserId(nUserId) {
+  localStorage.setItem('currentUserUID', nUserId);
 }
 
-function getUserId(){
-  return currentUserUID;
+function getUserId() {
+  return localStorage.getItem('currentUserUID');
 }
