@@ -86,13 +86,13 @@ nav {
 }
 
 .login-container .password-container input {
-    width: 100%; /* Setzt die Breite des Passwortfelds auf 100% des Containers */
+    width: 90%; /* Setzt die Breite des Passwortfelds auf 100% des Containers */
 }
 
 .login-container .password-container .show-password {
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 25px;
+    top: 37%;
     transform: translateY(-50%);
     background: none;
     border: none;
