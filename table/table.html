@@ -82,7 +82,7 @@
         const db = firebase.firestore();
 
         window.onload = function () {
-            if (isLoggedIn()) {
+            if (getLoggedIn()) {
                 loadTable();
             } else {
                 const contentDiv = document.getElementById("content");
