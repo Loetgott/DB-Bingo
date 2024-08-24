@@ -54,7 +54,7 @@ td {
     white-space: normal; /* Erlaubt Zeilenumbrüche */
     word-wrap: break-word; /* Bricht lange Wörter um, damit sie in die Zelle passen */
     font-size: calc(2vmin); /* Dynamische Schriftgröße basierend auf der Viewport-Größe */
-    display: flex;
+    display: table-cell;
     justify-content: center;
     align-items: center;
     padding: 5px; /* Optional: Innenabstand, um Text vom Rand zu entfernen */
