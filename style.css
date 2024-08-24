@@ -71,14 +71,37 @@ nav {
     flex-direction: column;
 }
 
+/* Stil für den Passwort-Container */
+.password-container {
+    position: relative; /* Erlaubt die absolute Positionierung des Buttons innerhalb des Containers */
+}
+
 .login-container input {
     margin-bottom: 15px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: calc(100% - 40px); /* Passt die Breite des Passwortfelds an */
 }
 
+.login-container .password-container input {
+    width: 100%; /* Setzt die Breite des Passwortfelds auf 100% des Containers */
+}
+
+.login-container .password-container .show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #e61212;
+}
+
+/* Stil für den Login-Button */
 .login-container button {
     padding: 10px;
     font-size: 16px;
