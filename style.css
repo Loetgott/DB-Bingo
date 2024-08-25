@@ -186,3 +186,54 @@ table, th, td {
     margin-top: 60px; /* Platz für die fixe Navbar schaffen */
     padding: 5vmin;
 }
+
+/* Stil für das Account-Icon und das Dropdown-Menü */
+.account-menu {
+    float: right; /* Positioniert das Account-Icon auf der rechten Seite */
+    position: relative; /* Ermöglicht die absolute Positionierung des Dropdown-Menüs */
+}
+
+.account-menu #account-icon {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.account-menu #account-icon:hover {
+    background-color: #bbbbbb;
+    color: #282d37;
+}
+
+.profile-dropdown {
+    display: none; /* Versteckt das Menü standardmäßig */
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.profile-dropdown li {
+    float: none; /* Entfernt das linke Ausrichten */
+}
+
+.profile-dropdown li a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    color: #282d37;
+}
+
+.profile-dropdown li a:hover {
+    background-color: #f1f1f1;
+}
+
+.account-menu:hover .profile-dropdown {
+    display: block; /* Zeigt das Dropdown-Menü bei Hover */
+}
