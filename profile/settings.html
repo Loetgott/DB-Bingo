@@ -33,17 +33,20 @@
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Geben Sie Ihren neuen Namen ein" required autocomplete="off">
+                    <button type="button" id="saveNameButton">Namen speichern</button>
                 </div>
-    
-                <!-- Formular zum Ändern des Passworts -->
+            </form>
+
+            <!-- Formular zum Ändern des Passworts -->
+            <form id="passwordForm">
                 <div class="password-container">
                     <label for="old-password">Altes Passwort:</label>
                     <input type="password" id="old-password" name="old-password" placeholder="Altes Passwort" required >
-    
+
                     <label for="new-password">Neues Passwort:</label>
                     <input type="password" id="new-password" name="new-password" placeholder="Neues Passwort" required autocomplete="off">
-    
-                    <button type="submit">Änderungen speichern</button>
+
+                    <button type="button" id="savePasswordButton">Passwort ändern</button>
                 </div>
             </form>
     
@@ -69,17 +72,35 @@
                 `;
             }
         };
-        document.getElementById('profileForm').onsubmit = function(event) {
-            event.preventDefault();
 
+        // Event-Listener für das Speichern des Namens
+        document.getElementById('saveNameButton').onclick = async function() {
             const name = document.getElementById('name').value;
+
+            try {
+                // Hier könntest du den neuen Namen in der Datenbank speichern
+                console.log("Speichere neuen Namen:", name);
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerText = 'Name erfolgreich gespeichert!';
+            } catch (error) {
+                console.error("Fehler beim Speichern des Namens:", error);
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerText = 'Fehler beim Speichern des Namens.';
+            }
+            document.getElementById('message').style.display = 'block';
+        };
+
+        // Event-Listener für das Ändern des Passworts
+        document.getElementById('savePasswordButton').onclick = function() {
             const oldPassword = document.getElementById('old-password').value;
             const newPassword = document.getElementById('new-password').value;
 
             // Beispielhafte Validierung und Verarbeitung
             if (oldPassword === 'richtigesPasswort') {
+                // Hier könntest du das neue Passwort in der Datenbank speichern
+                console.log("Speichere neues Passwort:", newPassword);
                 document.getElementById('message').style.color = 'green';
-                document.getElementById('message').innerText = 'Änderungen gespeichert!';
+                document.getElementById('message').innerText = 'Passwort erfolgreich geändert!';
             } else {
                 document.getElementById('message').style.color = 'red';
                 document.getElementById('message').innerText = 'Altes Passwort ist falsch!';
