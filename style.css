@@ -186,3 +186,8 @@ tbody td:hover {
 table, th, td {
     border: 1px solid #ddd;
 }
+
+.main-content {
+    margin-top: 60px; /* Platz für die fixe Navbar schaffen */
+    padding: 20px;
+}
