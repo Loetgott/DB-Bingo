@@ -84,6 +84,20 @@
                 `;
             }
         };
+        document.getElementById('account-icon').addEventListener('click', function(e) {
+            e.preventDefault(); // Verhindert, dass der Link aktiv wird
+            var dropdown = document.querySelector('.profile-dropdown');
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            var dropdown = document.querySelector('.profile-dropdown');
+            var accountMenu = document.querySelector('.account-menu');
+
+            if (!accountMenu.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
