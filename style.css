@@ -148,8 +148,8 @@ nav {
 
 /* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 table {
-    width: 100vmin;
-    height: 100vmin;
+    width: 90vmin;
+    height:100vmin;
     border-collapse: collapse;
 }
 
@@ -184,5 +184,5 @@ table, th, td {
 
 .main-content {
     margin-top: 60px; /* Platz für die fixe Navbar schaffen */
-    padding: 20px;
+    padding: 5vmin;
 }
