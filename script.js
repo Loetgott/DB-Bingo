@@ -41,14 +41,16 @@ window.loadTable = async function(){
   }
 }
 
+import { Timestamp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
 function saveData(playerId, fieldName, fieldValue) {
   console.log("Speicherung..." + playerId + " | " + fieldName + " | " + fieldValue);
-  
+
   const docRef = doc(db, "player", String(playerId));
 
   setDoc(docRef, {
-    [fieldName]: fieldValue,
-    timestamp: new Date()
+    [fieldName]: String(fieldValue),
+    timestamp: Timestamp.fromDate(new Date())
   }, { merge: true })
     .then(() => {
       console.log("Spielstand erfolgreich gespeichert!");
