@@ -26,9 +26,9 @@
         window.onload = function () {
             console.log(getLoggedIn());
             if (getLoggedIn()) {
-                document.getElementById("settingsPage").style.display = block;
+                document.getElementById("settingsPage").style.display = "block";
             } else {
-                document.getElementById("settingsPage").style.display = none;
+                document.getElementById("settingsPage").style.display = "none";
                 const contentDiv = document.getElementById("content");
                 contentDiv.innerHTML = `
                     <div class="login-warning">
