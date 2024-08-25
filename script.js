@@ -40,6 +40,7 @@ async function loadTable() {
 }
 
 function saveData(playerId, fieldName, fieldValue) {
+  const db = getFirestore(app);
   console.log("Speicherung..." + playerId + " | " + fieldName + " | " + fieldValue);
   const docRef = db.collection("player").doc(String(playerId));
 
