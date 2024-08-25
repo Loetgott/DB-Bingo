@@ -1,3 +1,20 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
+// Firebase-Konfiguration
+const firebaseConfig = {
+  apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
+  authDomain: "db-bingo.firebaseapp.com",
+  projectId: "db-bingo",
+  storageBucket: "db-bingo.appspot.com",
+  messagingSenderId: "37192930676",
+  appId: "1:37192930676:web:2d95e07e1f0697b8594821",
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
 async function getDeviationField(devId) {
   console.log("suche nach Feld mit id " + devId + " ...")
   try {
@@ -40,12 +57,11 @@ async function loadTable() {
 }
 
 function saveData(playerId, fieldName, fieldValue) {
-  const db = getFirestore(app);
   console.log("Speicherung..." + playerId + " | " + fieldName + " | " + fieldValue);
   const docRef = db.collection("player").doc(String(playerId));
 
   docRef.set({
-    [fieldName] : fieldValue,
+    [fieldName]: fieldValue,
     timestamp: new Date()
   }, { merge: true })  // Merge Option hinzugefügt, um bestehende Daten nicht zu überschreiben
     .then(() => {
