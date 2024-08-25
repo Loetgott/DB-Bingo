@@ -41,7 +41,7 @@ async function loadTable() {
 
 function saveData(playerId, fieldName, fieldValue) {
 
-  const docRef = db.collection("scores").doc(String(playerId));
+  const docRef = db.collection("player").doc(String(playerId));
 
   docRef.set({
     [fieldName] : fieldValue,
