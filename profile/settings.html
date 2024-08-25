@@ -53,11 +53,11 @@
     </div>
 
     <script>
-        window.onload = function () {
+        window.onload = async function () {
             console.log(getLoggedIn());
             if (getLoggedIn()) {
                 document.getElementById("settingsPage").style.display = "block";
-                document.getElementById("name").value = getData("player",getUserId(),"name");
+                document.getElementById("name").value = await getData("player",getUserId(),"name");
             } else {
                 document.getElementById("settingsPage").style.display = "none";
                 const contentDiv = document.getElementById("content");
