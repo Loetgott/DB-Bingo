@@ -41,7 +41,7 @@ window.loadTable = async function(){
   }
 }
 
-async function getData(collection, documentName, fieldName) {
+window.getData = async function(collection, documentName, fieldName) {
   console.log("suche nach Feld mit id " + fieldName + " ...");
   try {
     const docRef = doc(db, collection, documentName);
