@@ -82,11 +82,11 @@ nav {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: calc(100% - 40px); /* Passt die Breite des Passwortfelds an */
+    width: 94.5%; /* Passt die Breite des Passwortfelds an */
 }
 
 .login-container .password-container input {
-    width: 90%; /* Setzt die Breite des Passwortfelds auf 100% des Containers */
+    width: 94.5%; /* Setzt die Breite des Passwortfelds auf 100% des Containers */
 }
 
 .login-container .password-container .show-password {
