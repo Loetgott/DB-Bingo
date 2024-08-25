@@ -33,9 +33,9 @@
       if (email && password) {
         try {
           await createUserWithEmailAndPassword(auth, email, password);
-          console.log('User created:', user);
           const userCredential = await signInWithEmailAndPassword(auth, email, password);
           const user = userCredential.user;
+          console.log('User created:', user);
           setLoggedIn(true);
           setUserId(user.uid);
           await setDoc(doc(db, "players", user.uid), {
