@@ -38,7 +38,7 @@
           console.log('User created:', user);
           setLoggedIn(true);
           setUserId(user.uid);
-          saveData(db,getUserId(), "name", String(email).split("@")[0]);
+          saveData(getUserId(), "name", String(email).split("@")[0]);
           window.location.href = '/table/table.html';
         } catch (error) {
           if (error.code === 'auth/email-already-in-use') {
