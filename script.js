@@ -41,6 +41,28 @@ window.loadTable = async function(){
   }
 }
 
+async function getData(collection, documentName, fieldName) {
+  console.log("suche nach Feld mit id " + fieldName + " ...");
+  try {
+    const docRef = doc(db, collection, documentName);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Dokumentdaten:", docSnap.data());
+
+      const fieldValue = docSnap.data()[fieldName];
+      console.log(`Wert für ${fieldName}:`, fieldValue);
+      return fieldValue;
+    } else {
+      console.log("Kein Dokument mit dieser ID gefunden.");
+      return "Keine Daten";
+    }
+  } catch (error) {
+    console.error("Fehler beim Abrufen der Abweichung:", error);
+    return "Fehler";
+  }
+}
+
 import { Timestamp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
 function saveData(playerId, fieldName, fieldValue) {
@@ -61,16 +83,6 @@ function saveData(playerId, fieldName, fieldValue) {
     });
 }
 
-
-async function testFirestore() {
-  try {
-    const docRef = doc(db, "player", "testUser");
-    await setDoc(docRef, { testField: "testValue" });
-    console.log("Testdokument erfolgreich erstellt.");
-  } catch (error) {
-    console.error("Fehler beim Testen der Firestore-Verbindung: ", error);
-  }
-}
 
 
 let currentUserUID = null;
