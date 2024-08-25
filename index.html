@@ -7,6 +7,9 @@
   <title>DB-Bingo</title>
   <script type="module" src="script.js"></script>
   <script type="module">
+    window.onload = function(){
+      console.log(process.env.FIREBASE_API_KEY);
+    }
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
     import { db } from './firebase.js';
 
