@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout</title>
+    <title>DB-Bingo</title>
     <link rel="stylesheet" href="/style.css">
-    <script type="module" src="../script.js"></script>
 </head>
-<body>
 
+<body>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
+    <script type="module" src="../script.js"></script>
     <nav>
         <ul class="navbar">
             <li><a href="/table/table.html">Meine Tabelle</a></li>
             <li><a href="/leaderboard/leaderboard.html">Leaderboard</a></li>
-            <li><a href="/profile/logout.html">Einstellungen</a></li>
+            <li><a href="/profile/logout.html">Logout</a></li>
         </ul>
     </nav>
-    <div class="login-warning">
-        <h2>Sie sind jetzt abgemeldet.</h2>
-        <p>Wieder <a href="../index.html">anmelden</a>?<p>
+    <div id="settingsPage">
+        hallo
     </div>
     <script>
         window.onload = function () {
-            setLoggedIn(false);
-            setUserId(null);
+            console.log(getLoggedIn());
+            if (getLoggedIn()) {
+                document.getElementById("settingsPage").style.display = block;
+            } else {
+                document.getElementById("settingsPage").style.display = none;
+                const contentDiv = document.getElementById("content");
+                contentDiv.innerHTML = `
+                    <div class="login-warning">
+                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+                    </div>
+                `;
+            }
         };
     </script>
 </body>
