@@ -13,7 +13,6 @@
     const auth = getAuth();
 
     window.handleLogin = async function (event) {
-      testFirestore();
       event.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
