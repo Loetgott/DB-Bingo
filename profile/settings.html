@@ -19,7 +19,7 @@
             <li><a href="/profile/logout.html">Logout</a></li>
         </ul>
     </nav>
-    <div id="settingsPage">
+    <div id="settingsPage" style="display:none;">
         <h1>hallo</h1>
     </div>
     <script>
@@ -30,12 +30,14 @@
             } else {
                 document.getElementById("settingsPage").style.display = "none";
                 const contentDiv = document.getElementById("content");
-                contentDiv.innerHTML = `
-                    <div class="login-warning">
-                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
-                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
-                    </div>
-                `;
+                if (contentDiv) {
+                    contentDiv.innerHTML = `
+                        <div class="login-warning">
+                            <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                            <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+                        </div>
+                    `;
+                }
             }
         };
     </script>
