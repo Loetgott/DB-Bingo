@@ -43,6 +43,7 @@ window.loadTable = async function(){
 
 function saveData(playerId, fieldName, fieldValue) {
   console.log("Speicherung..." + playerId + " | " + fieldName + " | " + fieldValue);
+  
   const docRef = doc(db, "player", String(playerId));
 
   setDoc(docRef, {
