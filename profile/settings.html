@@ -19,9 +19,15 @@
             <li><a href="/profile/logout.html">Logout</a></li>
         </ul>
     </nav>
+
+    <!-- Dieser Container wird verwendet, um Inhalte anzuzeigen, wenn der Benutzer nicht eingeloggt ist -->
+    <div id="content"></div>
+
+    <!-- Dieser Container wird nur angezeigt, wenn der Benutzer eingeloggt ist -->
     <div id="settingsPage" style="display:none;">
-        <h1>hallo</h1>
+        <h1>Hallo</h1>
     </div>
+
     <script>
         window.onload = function () {
             console.log(getLoggedIn());
@@ -30,16 +36,15 @@
             } else {
                 document.getElementById("settingsPage").style.display = "none";
                 const contentDiv = document.getElementById("content");
-                if (contentDiv) {
-                    contentDiv.innerHTML = `
-                        <div class="login-warning">
-                            <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
-                            <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
-                        </div>
-                    `;
-                }
+                contentDiv.innerHTML = `
+                    <div class="login-warning">
+                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+                    </div>
+                `;
             }
         };
     </script>
 </body>
+
 </html>
