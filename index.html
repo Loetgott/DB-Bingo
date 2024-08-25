@@ -25,7 +25,7 @@
           setLoggedIn(true);
           setUserId(user.uid);
           saveData(getUserId(), "name", String(email).split("@")[0]);
-          window.location.href = '/table/table.html';
+          //window.location.href = '/table/table.html';
         } catch (error) {
           if (error.code === 'auth/email-already-in-use') {
             console.error("E-Mail-Adresse ist bereits registriert.");
