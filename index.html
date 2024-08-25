@@ -76,7 +76,15 @@
 
 <body>
   <script>
-    console.log(FIREBASE_API_KEY);
+    async function fetchFirebaseApiKey() {
+      const response = await fetch('/api/config');
+      const data = await response.json();
+      return data.firebaseApiKey;
+    }
+
+    fetchFirebaseApiKey().then(apiKey => {
+      console.log(apiKey); // Hier kannst du den API-Key verwenden
+    });
   </script>
   <nav>
     <ul class="navbar">
@@ -93,7 +101,8 @@
         <div class="password-container">
           <input type="password" id="password" placeholder="Passwort" required>
           <button type="button" class="show-password" onclick="togglePassword()">👁️</button>
-          <p><a href="/profile/forgotPassword.html">Passwort vergessen?</a><p>
+          <p><a href="/profile/forgotPassword.html">Passwort vergessen?</a>
+          <p>
         </div>
         <button type="submit">Einloggen/ Registrieren</button>
       </form>
