@@ -1,14 +1,17 @@
+// script.js
+import { db } from './firebase.js'; // Importiere db aus firebase.js
+import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
 async function getDeviationField(devId) {
-  console.log("suche nach Feld mit id " + devId + " ...")
+  console.log("suche nach Feld mit id " + devId + " ...");
   try {
-    // Zugriff auf das Dokument in der Sammlung "deviations"
-    const doc = await db.collection("deviations").doc("deviations").get();
+    const docRef = doc(db, "deviations", "deviations");
+    const docSnap = await getDoc(docRef);
 
-    if (doc.exists) {
-      console.log("Dokumentdaten:", doc.data());
+    if (docSnap.exists()) {
+      console.log("Dokumentdaten:", docSnap.data());
 
-      // Zugriff auf das Feld "d1"
-      const fieldValue = doc.data()[devId];
+      const fieldValue = docSnap.data()[devId];
       console.log(`Wert für ${devId}:`, fieldValue);
       return fieldValue;
     } else {
@@ -22,7 +25,6 @@ async function getDeviationField(devId) {
 }
 
 async function loadTable() {
-  //registrateUser("nnamlohl@gmail.com","test");
   for (let i = 1; i < 26; i++) {
     const element = document.getElementById("d" + i);
 
@@ -41,12 +43,12 @@ async function loadTable() {
 
 function saveData(playerId, fieldName, fieldValue) {
   console.log("Speicherung..." + playerId + " | " + fieldName + " | " + fieldValue);
-  const docRef = db.collection("player").doc(String(playerId));
+  const docRef = doc(db, "player", String(playerId));
 
-  docRef.set({
+  setDoc(docRef, {
     [fieldName]: fieldValue,
     timestamp: new Date()
-  }, { merge: true })  // Merge Option hinzugefügt, um bestehende Daten nicht zu überschreiben
+  }, { merge: true })
     .then(() => {
       console.log("Spielstand erfolgreich gespeichert!");
     })

@@ -5,26 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DB-Bingo</title>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
   <script type="module">
-    // Importiere die Firebase-Module
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+    import { db } from './firebase.js';
 
-    // Firebase-Konfiguration
-    const firebaseConfig = {
-      apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
-      authDomain: "db-bingo.firebaseapp.com",
-      projectId: "db-bingo",
-      storageBucket: "db-bingo.appspot.com",
-      messagingSenderId: "37192930676",
-      appId: "1:37192930676:web:2d95e07e1f0697b8594821",
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+    const auth = getAuth();
 
     window.handleLogin = async function (event) {
       event.preventDefault();
