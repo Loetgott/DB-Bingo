@@ -4,7 +4,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase
 
 // Firebase-Konfiguration
 const firebaseConfig = {
-  apiKey: FIREBASE_API_KEY,
+  apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
   authDomain: "db-bingo.firebaseapp.com",
   projectId: "db-bingo",
   storageBucket: "db-bingo.appspot.com",
@@ -15,6 +15,5 @@ const firebaseConfig = {
 // Firebase initialisieren
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 
 export { db };
