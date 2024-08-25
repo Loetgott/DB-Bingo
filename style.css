@@ -142,6 +142,11 @@ nav {
     text-decoration: underline;
 }
 
+.login-container a{
+    color: #e61212; /* Gleiche Farbe wie der Login-Button */
+    text-decoration: underline;
+}
+
 .login-warning a:hover {
     color: #c00; /* Gleicher Hover-Effekt wie beim Login-Button */
 }
