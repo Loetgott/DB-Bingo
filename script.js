@@ -48,7 +48,7 @@ function saveData(playerId, fieldName, fieldValue) {
 
   const docRef = doc(db, "player", String(playerId));
 
-  setDoc(docRef, {
+  return setDoc(docRef, {
     [fieldName]: String(fieldValue),
     timestamp: Timestamp.fromDate(new Date())
   }, { merge: true })
@@ -57,8 +57,10 @@ function saveData(playerId, fieldName, fieldValue) {
     })
     .catch((error) => {
       console.error("Fehler beim Speichern des Spielstands: ", error);
+      throw error; // Fehler weiterreichen, um in handleLogin behandelt zu werden
     });
 }
+
 
 async function testFirestore() {
   try {
