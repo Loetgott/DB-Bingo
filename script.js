@@ -24,7 +24,7 @@ async function getDeviationField(devId) {
   }
 }
 
-async function loadTable() {
+window.loadTable = async function(){
   for (let i = 1; i < 26; i++) {
     const element = document.getElementById("d" + i);
 
