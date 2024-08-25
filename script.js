@@ -60,6 +60,17 @@ function saveData(playerId, fieldName, fieldValue) {
     });
 }
 
+async function testFirestore() {
+  try {
+    const docRef = doc(db, "player", "testUser");
+    await setDoc(docRef, { testField: "testValue" });
+    console.log("Testdokument erfolgreich erstellt.");
+  } catch (error) {
+    console.error("Fehler beim Testen der Firestore-Verbindung: ", error);
+  }
+}
+
+
 let currentUserUID = null;
 let loggedIn = false;
 
