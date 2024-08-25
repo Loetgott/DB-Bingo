@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
-  
+
     // Firebase-Konfiguration
     const firebaseConfig = {
       apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
@@ -20,21 +21,24 @@
       messagingSenderId: "37192930676",
       appId: "1:37192930676:web:2d95e07e1f0697b8594821",
     };
-  
+
     // Firebase initialisieren
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-  
+
     // Funktionen definieren
-    window.handleLogin = async function(event) {
+    window.handleLogin = async function (event) {
       event.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       if (email && password) {
         try {
           await createUserWithEmailAndPassword(auth, email, password);
-          console.log('User created');
+          console.log('User created:', user);
+          setLoggedIn(true);
+          setUserId(user.uid);
+          saveData(getUserId(), "name", String(email).split("@")[0]);
           window.location.href = '/table/table.html';
         } catch (error) {
           if (error.code === 'auth/email-already-in-use') {
@@ -48,26 +52,7 @@
         document.getElementById('error-message').textContent = 'Bitte alle Felder ausfüllen!';
       }
     };
-  
-    window.registrateUser = async function(email, password) {
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        console.log('User created:', user);
-        setLoggedIn(true);
-        setUserId(user.uid);
-        saveData(getUserId(),"name",String(email).split("@")[0]);
-        window.location.href = '/table/table.html';
-      } catch (error) {
-        if (error.code === 'auth/email-already-in-use') {
-          console.error("E-Mail-Adresse ist bereits registriert.");
-          await signIn(email, password);
-        } else {
-          console.error("Fehler:", error.code, error.message);
-        }
-      }
-    };
-  
+
     async function signIn(email, password) {
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -80,11 +65,11 @@
         console.error('Fehler beim Anmelden:', error.code, error.message);
       }
     }
-  
-    window.isLoggedIn = function() {
+
+    window.isLoggedIn = function () {
       return currentUserUID !== null;
     };
-  
+
     function togglePassword() {
       const passwordField = document.getElementById('password');
       const showPasswordButton = document.querySelector('.show-password');
@@ -102,6 +87,7 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <nav>
     <ul class="navbar">
@@ -110,7 +96,7 @@
       <li><a href="/">Logout</a></li>
     </ul>
   </nav>
-  
+
   <div class="main-content">
     <div class="login-container">
       <h2>Login</h2>
@@ -126,4 +112,5 @@
     </div>
   </div>
 </body>
+
 </html>
