@@ -39,15 +39,14 @@ async function loadTable() {
   }
 }
 
-// Spielstand speichern
-function saveGameScore(playerId, score) {
-  // Sicherstellen, dass playerId ein String ist
+function saveData(playerId, fieldName, fieldValue) {
+
   const docRef = db.collection("scores").doc(String(playerId));
 
   docRef.set({
-    score: score,
+    [fieldName] : fieldValue,
     timestamp: new Date()
-  })
+  }, { merge: true })  // Merge Option hinzugefügt, um bestehende Daten nicht zu überschreiben
     .then(() => {
       console.log("Spielstand erfolgreich gespeichert!");
     })
