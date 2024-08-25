@@ -75,3 +75,10 @@ function setUserId(nUserId) {
 function getUserId() {
   return localStorage.getItem('currentUserUID');
 }
+
+// Funktionen global verfügbar machen
+window.setLoggedIn = setLoggedIn;
+window.getLoggedIn = getLoggedIn;
+window.setUserId = setUserId;
+window.getUserId = getUserId;
+window.saveData = saveData; // Wenn du saveData auch global benötigst
