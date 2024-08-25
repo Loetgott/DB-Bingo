@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Bar Example</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="../script.js"></script>
 </head>
 <body>
 
-    <!-- Menüleiste -->
     <nav>
         <ul class="navbar">
             <li><a href="/table/table.html">Meine Tabelle</a></li>
-            <li><a href="#leaderboard">Leaderboard</a></li>
-            <li><a href="#logout">Logout</a></li>
+            <li><a href="../leaderboard/leaderboard.html">Leaderboard</a></li>
+            <li><a href="/logout">Logout</a></li>
         </ul>
     </nav>
-
+    <div class="login-warning">
+        <h2>Sie sind jetzt abgemeldet.</h2>
+        <p>Wieder <a href="../index.html">anmelden</a>,?<p>
+    </div>
+    <script>
+        window.onload = function () {
+            setLoggedin(false);
+            setUserId(null);
+        };
+    </script>
 </body>
 </html>
