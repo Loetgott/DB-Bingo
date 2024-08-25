@@ -80,6 +80,7 @@
             try {
                 // Hier könntest du den neuen Namen in der Datenbank speichern
                 console.log("Speichere neuen Namen:", name);
+                saveData(getUserId(),"name", name)
                 document.getElementById('message').style.color = 'green';
                 document.getElementById('message').innerText = 'Name erfolgreich gespeichert!';
             } catch (error) {

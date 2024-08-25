@@ -274,8 +274,9 @@ table, th, td {
 
 .form-group input,
 .password-container input {
+    margin-bottom:10px;
     width: 100%; /* Vollständig ausfüllend */
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -288,7 +289,7 @@ table, th, td {
 }
 
 .password-container input {
-    margin-bottom: 0; /* Entfernt den unteren Rand */
+    margin-bottom:10px;
 }
 
 /* Stil für den Speichern-Button */
