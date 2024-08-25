@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="../script.js"></script>
+</head>
+<body>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="/table/table.html">Meine Tabelle</a></li>
+            <li><a href="/leaderboard/leaderboard.html">Leaderboard</a></li>
+            <li><a href="/profile/logout.html">Einstellungen</a></li>
+        </ul>
+    </nav>
+    <div class="login-warning">
+        <h2>Sie sind jetzt abgemeldet.</h2>
+        <p>Wieder <a href="../index.html">anmelden</a>?<p>
+    </div>
+    <script>
+        window.onload = function () {
+            setLoggedIn(false);
+            setUserId(null);
+        };
+    </script>
+</body>
+</html>

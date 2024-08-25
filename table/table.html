@@ -16,13 +16,8 @@
         <ul class="navbar">
             <li><a href="/table/table.html">Meine Tabelle</a></li>
             <li><a href="/leaderboard/leaderboard.html">Leaderboard</a></li>
-            <li class="account-menu">
-                <a href="#" id="account-icon">⚙️</a>
-                <ul class="profile-dropdown">
-                    <li><a href="/profile/settings.html">Einstellungen</a></li>
-                    <li><a href="/profile/logout.html">Logout</a></li>
-                </ul>
-            </li>
+            <li><a href="/profile/settings.html">Einstellungen</a></li>
+            <li><a href="/profile/logout.html">Logout</a></li>
         </ul>
     </nav>
     <div class="main-content">
@@ -84,20 +79,6 @@
                 `;
             }
         };
-        document.getElementById('account-icon').addEventListener('click', function(e) {
-            e.preventDefault(); // Verhindert, dass der Link aktiv wird
-            var dropdown = document.querySelector('.profile-dropdown');
-            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-        });
-
-        document.addEventListener('click', function(event) {
-            var dropdown = document.querySelector('.profile-dropdown');
-            var accountMenu = document.querySelector('.account-menu');
-
-            if (!accountMenu.contains(event.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
     </script>
 </body>
 </html>
