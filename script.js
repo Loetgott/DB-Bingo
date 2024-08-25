@@ -40,7 +40,7 @@ async function loadTable() {
 }
 
 function saveData(playerId, fieldName, fieldValue) {
-  console.log("Speicherunng...");
+  console.log("Speicherung..." + playerId + " | " + fieldName + " | " + fieldValue);
   const docRef = db.collection("player").doc(String(playerId));
 
   docRef.set({
