@@ -237,3 +237,79 @@ table, th, td {
 .account-menu:hover .profile-dropdown {
     display: block; /* Zeigt das Dropdown-Menü bei Hover */
 }
+
+/* Stil für den Profil-Einstellungs-Container */
+.settings-container {
+    max-width: 400px;
+    margin: 100px auto; /* Zentriert den Container */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Stil für das Formular im Profil-Einstellungs-Container */
+.settings-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.settings-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stil für die Formular-Gruppen */
+.form-group,
+.password-container {
+    margin-bottom: 15px;
+}
+
+.form-group label,
+.password-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.password-container input {
+    width: 100%; /* Vollständig ausfüllend */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Bezieht Padding und Border in die Breite ein */
+}
+
+/* Stil für den Passwort-Container */
+.password-container {
+    position: relative; /* Ermöglicht die absolute Positionierung des Passwort-Anzeigen-Buttons */
+}
+
+.password-container input {
+    margin-bottom: 0; /* Entfernt den unteren Rand */
+}
+
+/* Stil für den Speichern-Button */
+.settings-container button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #e61212;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.settings-container button:hover {
+    background-color: #c00;
+}
+
+/* Stil für Fehler- oder Erfolgsnachrichten */
+#message {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+}

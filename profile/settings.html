@@ -25,7 +25,31 @@
 
     <!-- Dieser Container wird nur angezeigt, wenn der Benutzer eingeloggt ist -->
     <div id="settingsPage" style="display:none;">
-        <h1>Hallo</h1>
+        <div class="login-container">
+            <h2>Profil-Einstellungen</h2>
+            
+            <!-- Formular zum Ändern des Namens -->
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Geben Sie Ihren neuen Namen ein" required>
+                </div>
+    
+                <!-- Formular zum Ändern des Passworts -->
+                <div class="password-container">
+                    <label for="old-password">Altes Passwort:</label>
+                    <input type="password" id="old-password" name="old-password" placeholder="Altes Passwort" required>
+    
+                    <label for="new-password">Neues Passwort:</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="Neues Passwort" required>
+    
+                    <button type="submit">Änderungen speichern</button>
+                </div>
+            </form>
+    
+            <!-- Fehler- oder Erfolgsnachricht -->
+            <div id="message" style="display:none;"></div>
+        </div>
     </div>
 
     <script>
@@ -43,6 +67,23 @@
                     </div>
                 `;
             }
+        };
+        document.getElementById('profileForm').onsubmit = function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const oldPassword = document.getElementById('old-password').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            // Beispielhafte Validierung und Verarbeitung
+            if (oldPassword === 'richtigesPasswort') {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerText = 'Änderungen gespeichert!';
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerText = 'Altes Passwort ist falsch!';
+            }
+            document.getElementById('message').style.display = 'block';
         };
     </script>
 </body>
