@@ -36,6 +36,8 @@
         try {
           await createUserWithEmailAndPassword(auth, email, password);
           console.log('User created:', user);
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
           setLoggedIn(true);
           setUserId(user.uid);
           saveData(getUserId(), "name", String(email).split("@")[0]);
