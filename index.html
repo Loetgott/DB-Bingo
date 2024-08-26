@@ -25,6 +25,7 @@
           setLoggedIn(true);
           setUserId(user.uid);
           await saveData(getUserId(), "name", String(email).split("@")[0]);
+          await saveData(getUserId(), "score", 0);
           window.location.href = '/table/table.html';
         } catch (error) {
           if (error.code === 'auth/email-already-in-use') {
