@@ -97,8 +97,20 @@
         document.getElementById('savePasswordButton').onclick = function () {
             const oldPassword = document.getElementById('old-password').value;
             const newPassword = document.getElementById('new-password').value;
-            changePassword(oldPassword,newPassword);
+            changePassword(oldPassword, newPassword);
         };
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const showPasswordButton = document.querySelector('.show-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                showPasswordButton.textContent = '🙈';
+            } else {
+                passwordField.type = 'password';
+                showPasswordButton.textContent = '👁️';
+            }
+        }
     </script>
 </body>
 
