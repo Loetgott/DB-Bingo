@@ -32,6 +32,22 @@ window.loadTable = async function(){
       try {
         const value = await getDeviationField("d" + i);
         element.textContent = value;
+        
+        if (await getData("player", getUserId(),"d" + i)) {
+          // Hinzufügen des Kreuzes
+          const cross = document.createElement('div');
+          cross.classList.add('cross');
+          cross.textContent = 'X';
+          element.appendChild(cross);
+          element.classList.add('marked');
+        } else {
+          // Entfernen des Kreuzes, falls vorhanden
+          const cross = element.querySelector('.cross');
+          if (cross) {
+            element.removeChild(cross);
+          }
+          element.classList.remove('marked');
+        }
       } catch (error) {
         console.error(`Fehler beim Abrufen des Werts für d${i}:`, error);
       }
