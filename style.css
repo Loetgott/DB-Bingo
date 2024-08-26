@@ -160,6 +160,24 @@ td.marked {
     font-weight: bold; /* Fettschrift für das Kreuz */
 }
 
+/* Stil für die markierten Zellen */
+td.marked {
+    position: relative; /* Ermöglicht die Positionierung des Pseudo-Elements */
+}
+
+td.marked::after {
+    content: 'X'; /* Fügt das Kreuz hinzu */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Zentriert das Kreuz */
+    font-size: calc(4vmin); /* Größere Schrift für das Kreuz */
+    font-weight: bold; /* Fettschrift für das Kreuz */
+    color: red; /* Farbe des Kreuzes */
+    z-index: 1; /* Stellt sicher, dass das Kreuz über dem Text liegt */
+    pointer-events: none; /* Verhindert, dass das Kreuz selbst klickbar ist */
+}
+
 /* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 table {
     width: 90vmin;
@@ -196,7 +214,6 @@ tbody td:hover {
 table, th, td {
     border: 1px solid #ddd;
 }
-
 
 .main-content {
     margin-top: 60px; /* Platz für die fixe Navbar schaffen */
