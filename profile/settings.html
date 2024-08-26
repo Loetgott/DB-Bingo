@@ -45,9 +45,8 @@
                     <input type="password" id="old-password" name="old-password" placeholder="Altes Passwort" required>
                     <button type="button" class="show-password" onclick="togglePassword()">👁️</button>
                     <label for="new-password">Neues Passwort:</label>
-                    <input type="password" id="new-password" name="new-password" placeholder="Neues Passwort" required
-                        autocomplete="off">
-
+                    <input type="password" id="new-password" name="new-password" placeholder="Neues Passwort" required autocomplete="off">
+                    <button type="button" id='newPasswordButton' class="show-password" onclick="togglePassword()">👁️</button>
                     <button type="button" id="savePasswordButton">Passwort ändern</button>
                 </div>
             </form>
@@ -109,6 +108,17 @@
             } else {
                 passwordField.type = 'password';
                 showPasswordButton.textContent = '👁️';
+            }
+        }
+        function toggleNewPassword() {
+            const newPasswordField = document.getElementById('new-password');
+            const showNewPasswordButton = document.getElementById('newPasswordButton')
+            if (passwordField.type === 'password') {
+                newPasswordField.type = 'text';
+                showNewPasswordButton.textContent = '🙈';
+            } else {
+                newPasswordField.type = 'password';
+                showNewPasswordButton.textContent = '👁️';
             }
         }
     </script>
