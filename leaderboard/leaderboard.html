@@ -15,6 +15,28 @@
 
 <body>
     <script type="module" src="../script.js"></script>
+    <nav>
+        <ul class="navbar">
+            <li><a href="../table/table.html">Meine Tabelle</a></li>
+            <li><a href="../profile/settings.html">Einstellungen</a></li>
+            <li><a href="../profile/logout.html">Logout</a></li>
+        </ul>
+    </nav>
+    <div id="leaderboard-container" class="main-content">
+        <h1>Leaderboard</h1>
+        <table id="leaderboard">
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Benutzername</th>
+                    <th>Punkte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Hier werden die Leaderboard-Daten dynamisch geladen -->
+            </tbody>
+        </table>
+    </div>
     <script>
         window.onload = async function () {
             console.log('Seite geladen. Überprüfen des Login-Status...');
@@ -44,31 +66,6 @@
             }
         };
     </script>
-
-    <nav>
-        <ul class="navbar">
-            <li><a href="../table/table.html">Meine Tabelle</a></li>
-            <li><a href="../profile/settings.html">Einstellungen</a></li>
-            <li><a href="../profile/logout.html">Logout</a></li>
-        </ul>
-    </nav>
-
-    <div id="leaderboard-container" class="main-content">
-        <h1>Leaderboard</h1>
-        <table id="leaderboard">
-            <thead>
-                <tr>
-                    <th>Rang</th>
-                    <th>Benutzername</th>
-                    <th>Punkte</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Hier werden die Leaderboard-Daten dynamisch geladen -->
-            </tbody>
-        </table>
-    </div>
-
 </body>
 
 </html>
