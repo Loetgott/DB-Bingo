@@ -12,8 +12,6 @@
 
     const auth = getAuth();
 
-    console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
-    
     window.handleLogin = async function (event) {
       event.preventDefault();
       const email = document.getElementById('email').value;
