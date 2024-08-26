@@ -152,9 +152,18 @@ nav {
 }
 
 /* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
+/* Stil für die markierten Zellen */
+td.marked {
+    background-color: #e61212; /* Roter Hintergrund für markierte Zellen */
+    color: white; /* Weißer Text für das Kreuz */
+    font-size: calc(4vmin); /* Größere Schrift für das Kreuz */
+    font-weight: bold; /* Fettschrift für das Kreuz */
+}
+
+/* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 table {
     width: 90vmin;
-    height:100vmin;
+    height: 100vmin;
     border-collapse: collapse;
 }
 
@@ -173,6 +182,7 @@ td {
     align-items: center;
     padding: 5px;
     box-sizing: border-box;
+    cursor: pointer; /* Zeigt den Cursor als Hand an */
 }
 
 tbody tr:nth-child(even) {
@@ -186,6 +196,7 @@ tbody td:hover {
 table, th, td {
     border: 1px solid #ddd;
 }
+
 
 .main-content {
     margin-top: 60px; /* Platz für die fixe Navbar schaffen */
