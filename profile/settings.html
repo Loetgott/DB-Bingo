@@ -27,12 +27,13 @@
     <div id="settingsPage" style="display:none;">
         <div class="login-container">
             <h2>Profil-Einstellungen</h2>
-            
+
             <!-- Formular zum Ändern des Namens -->
             <form id="profileForm">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Geben Sie Ihren neuen Namen ein" required autocomplete="off">
+                    <input type="text" id="name" name="name" placeholder="Geben Sie Ihren neuen Namen ein" required
+                        autocomplete="off">
                     <button type="button" id="saveNameButton">Namen speichern</button>
                 </div>
             </form>
@@ -41,15 +42,16 @@
             <form id="passwordForm">
                 <div class="password-container">
                     <label for="old-password">Altes Passwort:</label>
-                    <input type="password" id="old-password" name="old-password" placeholder="Altes Passwort" required >
+                    <input type="password" id="old-password" name="old-password" placeholder="Altes Passwort" required>
 
                     <label for="new-password">Neues Passwort:</label>
-                    <input type="password" id="new-password" name="new-password" placeholder="Neues Passwort" required autocomplete="off">
+                    <input type="password" id="new-password" name="new-password" placeholder="Neues Passwort" required
+                        autocomplete="off">
 
                     <button type="button" id="savePasswordButton">Passwort ändern</button>
                 </div>
             </form>
-    
+
             <!-- Fehler- oder Erfolgsnachricht -->
             <div id="message" style="display:none;"></div>
         </div>
@@ -60,7 +62,7 @@
             console.log(getLoggedIn());
             if (getLoggedIn()) {
                 document.getElementById("settingsPage").style.display = "block";
-                document.getElementById("name").value = await getData("player",getUserId(),"name");
+                document.getElementById("name").value = await getData("player", getUserId(), "name");
             } else {
                 document.getElementById("settingsPage").style.display = "none";
                 const contentDiv = document.getElementById("content");
@@ -74,13 +76,13 @@
         };
 
         // Event-Listener für das Speichern des Namens
-        document.getElementById('saveNameButton').onclick = async function() {
+        document.getElementById('saveNameButton').onclick = async function () {
             const name = document.getElementById('name').value;
 
             try {
                 // Hier könntest du den neuen Namen in der Datenbank speichern
                 console.log("Speichere neuen Namen:", name);
-                saveData(getUserId(),"name", name)
+                saveData(getUserId(), "name", name)
                 document.getElementById('message').style.color = 'green';
                 document.getElementById('message').innerText = 'Name erfolgreich gespeichert!';
             } catch (error) {
@@ -92,22 +94,35 @@
         };
 
         // Event-Listener für das Ändern des Passworts
-        document.getElementById('savePasswordButton').onclick = function() {
+        document.getElementById('savePasswordButton').onclick = function () {
             const oldPassword = document.getElementById('old-password').value;
             const newPassword = document.getElementById('new-password').value;
-
-            // Beispielhafte Validierung und Verarbeitung
-            if (oldPassword === 'richtigesPasswort') {
-                // Hier könntest du das neue Passwort in der Datenbank speichern
-                console.log("Speichere neues Passwort:", newPassword);
-                document.getElementById('message').style.color = 'green';
-                document.getElementById('message').innerText = 'Passwort erfolgreich geändert!';
-            } else {
-                document.getElementById('message').style.color = 'red';
-                document.getElementById('message').innerText = 'Altes Passwort ist falsch!';
-            }
-            document.getElementById('message').style.display = 'block';
+            changePassword(oldPassword,newPassword);
         };
+
+        // Annahme: Der Benutzer ist bereits eingeloggt und gibt das alte und neue Passwort über ein Formular ein.
+
+        function changePassword(oldPassword, newPassword) {
+            var user = firebase.auth().currentUser;
+            var email = user.email;
+
+            // Re-Authentifizierung des Benutzers mit dem alten Passwort
+            var credential = firebase.auth.EmailAuthProvider.credential(email, oldPassword);
+
+            user.reauthenticateWithCredential(credential).then(() => {
+                // Re-Authentifizierung erfolgreich, neues Passwort setzen
+                user.updatePassword(newPassword).then(() => {
+                    console.log('Passwort erfolgreich geändert.');
+                    // Zeige dem Benutzer eine Erfolgsmeldung an
+                }).catch((error) => {
+                    console.error('Fehler beim Ändern des Passworts:', error);
+                    // Fehlerbehandlung, z.B. wenn das neue Passwort nicht den Anforderungen entspricht
+                });
+            }).catch((error) => {
+                console.error('Fehler bei der Re-Authentifizierung:', error);
+                // Fehlerbehandlung, z.B. wenn das alte Passwort falsch ist
+            });
+        }
     </script>
 </body>
 
