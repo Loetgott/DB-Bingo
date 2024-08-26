@@ -26,6 +26,9 @@
           setUserId(user.uid);
           await saveData(getUserId(), "name", String(email).split("@")[0]);
           await saveData(getUserId(), "score", 0);
+          for(let i = 1; i < 26; i++){
+            await saveData(getUserId(),"d" + i, false);
+          }
           window.location.href = '/table/table.html';
         } catch (error) {
           if (error.code === 'auth/email-already-in-use') {
