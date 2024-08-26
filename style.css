@@ -40,8 +40,7 @@ nav {
 
 /* Stil für Hover-Effekt */
 .navbar li a:hover {
-    background-color: #bbbbbb;
-    color: #282d37;
+    background-color: #c00;
 }
 
 
