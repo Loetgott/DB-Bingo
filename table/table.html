@@ -65,7 +65,7 @@
     </div>
 
     <script>
-        window.onload = function () {
+        window.onload = async function () {
             console.log(getLoggedIn());
             if (getLoggedIn()) {
                 loadTable();
@@ -73,12 +73,13 @@
                 // Hinzufügen eines Klick-Events für alle Zellen
                 const cells = document.querySelectorAll('#table td');
                 cells.forEach(cell => {
-                    cell.addEventListener('click', function () {
+                    cell.addEventListener('click', async function () {
                         if (this.classList.contains('marked')) {
                             // Entfernen des Kreuzes
                             const cross = this.querySelector('.cross');
                             if (cross) this.removeChild(cross);
                             this.classList.remove('marked');
+                            await saveData(getPlayerId(),this.id(),false);
                         } else {
                             // Hinzufügen des Kreuzes
                             const cross = document.createElement('div');
@@ -86,6 +87,7 @@
                             cross.textContent = 'X';
                             this.appendChild(cross);
                             this.classList.add('marked');
+                            await saveData(getPlayerId(),this.id,true);
                         }
                     });
                 });
