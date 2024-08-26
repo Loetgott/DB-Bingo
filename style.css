@@ -152,6 +152,7 @@ nav {
 }
 
 /* Stil für die markierten Zellen */
+/* Stil für die markierten Zellen */
 td.marked {
     position: relative; /* Ermöglicht die Positionierung des Kreuzes innerhalb der Zelle */
 }
@@ -162,11 +163,15 @@ td .cross {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Zentriert das Kreuz */
-    font-size: calc(4vmin); /* Größere Schrift für das Kreuz */
+    font-size: calc(6vmin); /* Größere Schrift für das Kreuz */
     font-weight: bold; /* Fettschrift für das Kreuz */
     color: rgba(255, 0, 0, 0.8); /* Leicht durchsichtige rote Farbe für das Kreuz */
     z-index: 1; /* Stellt sicher, dass das Kreuz über dem Text liegt */
     pointer-events: none; /* Verhindert, dass das Kreuz selbst klickbar ist */
+    border: 2px solid rgba(255, 0, 0, 0.8); /* Rand für das Kreuz */
+    border-radius: 50%; /* Rundet die Ecken ab, um einen Kreis zu erstellen */
+    padding: 0.1em; /* Abstand um das Kreuz herum */
+    background: rgba(255, 255, 255, 0.3); /* Heller Hintergrund, damit das Kreuz besser sichtbar ist */
 }
 
 /* Grundlegende Stile für die Tabelle */
@@ -206,6 +211,7 @@ tbody td:hover {
 table, th, td {
     border: 1px solid #ddd;
 }
+
 
 .main-content {
     margin-top: 60px; /* Platz für die fixe Navbar schaffen */
