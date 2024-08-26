@@ -2,9 +2,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
+console.log(FIREBASE_API_KEY);
+apikey = FIREBASE_API_KEY;
+
 // Firebase-Konfiguration
 const firebaseConfig = {
-  apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
+  apiKey: apikey,
   authDomain: "db-bingo.firebaseapp.com",
   projectId: "db-bingo",
   storageBucket: "db-bingo.appspot.com",
