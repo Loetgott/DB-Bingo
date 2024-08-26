@@ -170,3 +170,24 @@ window.loadLeaderboard = async function () {
         console.error("Fehler beim Laden des Leaderboards: ", error);
     }
 };
+window.changePassword = async function(oldPassword, newPassword) {
+    var user = firebase.auth().currentUser;
+    var email = user.email;
+
+    // Re-Authentifizierung des Benutzers mit dem alten Passwort
+    var credential = firebase.auth.EmailAuthProvider.credential(email, oldPassword);
+
+    user.reauthenticateWithCredential(credential).then(() => {
+        // Re-Authentifizierung erfolgreich, neues Passwort setzen
+        user.updatePassword(newPassword).then(() => {
+            console.log('Passwort erfolgreich geändert.');
+            // Zeige dem Benutzer eine Erfolgsmeldung an
+        }).catch((error) => {
+            console.error('Fehler beim Ändern des Passworts:', error);
+            // Fehlerbehandlung, z.B. wenn das neue Passwort nicht den Anforderungen entspricht
+        });
+    }).catch((error) => {
+        console.error('Fehler bei der Re-Authentifizierung:', error);
+        // Fehlerbehandlung, z.B. wenn das alte Passwort falsch ist
+    });
+}
