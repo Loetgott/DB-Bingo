@@ -33,7 +33,7 @@ window.loadTable = async function(){
         const value = await getDeviationField("d" + i);
         element.textContent = value;
         
-        if (await getData("player", getUserId(),"d" + i)) {
+        if (await getData("player", getUserId(),"d" + i) === 'true') {
           // Hinzufügen des Kreuzes
           const cross = document.createElement('div');
           cross.classList.add('cross');
