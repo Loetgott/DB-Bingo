@@ -79,7 +79,7 @@
                             const cross = this.querySelector('.cross');
                             if (cross) this.removeChild(cross);
                             this.classList.remove('marked');
-                            await saveData(getUserId(),this.id(),false);
+                            await saveData(getUserId(),this.id,false);
                         } else {
                             // Hinzufügen des Kreuzes
                             const cross = document.createElement('div');
