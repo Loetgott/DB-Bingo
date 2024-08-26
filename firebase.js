@@ -2,8 +2,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
-console.log(REACT_APP_FIREBASE_API_KEY);
-apikey = REACT_APP_FIREBASE_API_KEY;
+console.log(process.env.REACT_APP_FIREBASE_API_KEY);
+apikey = process.env.REACT_APP_FIREBASE_API_KEY;
 
 // Firebase-Konfiguration
 const firebaseConfig = {
