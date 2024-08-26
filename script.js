@@ -1,6 +1,6 @@
 // script.js
 import { db } from './firebase.js'; // Importiere db aus firebase.js
-import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+import { doc, setDoc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
 async function getDeviationField(devId) {
   console.log("suche nach Feld mit id " + devId + " ...");
