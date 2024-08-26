@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         #leaderboard-container {
-            display: none;
+            display: none; /* Verstecke den Container standardmäßig */
         }
     </style>
 </head>
@@ -16,12 +16,9 @@
 <body>
     <script type="module" src="../script.js"></script>
     <script>
-        // Debugging-Informationen
-        console.log('Script geladen.');
-
         window.onload = async function () {
             console.log('Seite geladen. Überprüfen des Login-Status...');
-
+            
             const loggedIn = getLoggedIn();
             console.log('Login Status:', loggedIn);
 
@@ -31,9 +28,10 @@
                 await loadLeaderboard();
             } else {
                 console.log('Benutzer ist nicht eingeloggt. Zeige Login-Warnung an.');
-
+                
                 const container = document.getElementById('leaderboard-container');
                 if (container) {
+                    container.style.display = 'block'; // Stelle sicher, dass der Container angezeigt wird
                     container.innerHTML = `
                         <div class="login-warning">
                             <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
@@ -66,7 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <!-- Hier werden die Leaderboard-Daten dynamisch geladen -->
             </tbody>
         </table>
     </div>
