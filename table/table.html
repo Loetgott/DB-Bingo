@@ -80,7 +80,7 @@
                             if (cross) this.removeChild(cross);
                             this.classList.remove('marked');
                             await saveData(getUserId(),this.id,false);
-                            await savedata(getUserId(),"score",parseInt(await getData("player",getUserId(),"score")) - 1);
+                            await saveData(getUserId(),"score",parseInt(await getData("player",getUserId(),"score")) - 1);
                         } else {
                             // Hinzufügen des Kreuzes
                             const cross = document.createElement('div');
@@ -89,7 +89,7 @@
                             this.appendChild(cross);
                             this.classList.add('marked');
                             await saveData(getUserId(),this.id,true);
-                            await savedata(getUserId(),"score",parseInt(await getData("player",getUserId(),"score")) + 1);
+                            await saveData(getUserId(),"score",parseInt(await getData("player",getUserId(),"score")) + 1);
                         }
                     });
                 });
