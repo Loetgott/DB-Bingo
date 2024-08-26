@@ -63,7 +63,7 @@
             </table>
         </div>
     </div>
-    
+
     <script>
         window.onload = function () {
             console.log(getLoggedIn());
@@ -73,12 +73,18 @@
                 // Hinzufügen eines Klick-Events für alle Zellen
                 const cells = document.querySelectorAll('#table td');
                 cells.forEach(cell => {
-                    cell.addEventListener('click', function() {
+                    cell.addEventListener('click', function () {
                         if (this.classList.contains('marked')) {
-                            this.innerHTML = ''; // Entfernt das "X"
+                            // Entfernen des Kreuzes
+                            const cross = this.querySelector('.cross');
+                            if (cross) this.removeChild(cross);
                             this.classList.remove('marked');
                         } else {
-                            this.innerHTML = 'X'; // Fügt das "X" hinzu
+                            // Hinzufügen des Kreuzes
+                            const cross = document.createElement('div');
+                            cross.classList.add('cross');
+                            cross.textContent = 'X';
+                            this.appendChild(cross);
                             this.classList.add('marked');
                         }
                     });
@@ -86,13 +92,15 @@
             } else {
                 const contentDiv = document.getElementById("content");
                 contentDiv.innerHTML = `
-                    <div class="login-warning">
-                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
-                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
-                    </div>
-                `;
+            <div class="login-warning">
+                <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+            </div>
+        `;
             }
         };
+
     </script>
 </body>
+
 </html>

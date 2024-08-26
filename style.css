@@ -151,34 +151,25 @@ nav {
     color: #c00; /* Gleicher Hover-Effekt wie beim Login-Button */
 }
 
-/* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
 /* Stil für die markierten Zellen */
 td.marked {
-    background-color: #e61212; /* Roter Hintergrund für markierte Zellen */
-    color: white; /* Weißer Text für das Kreuz */
-    font-size: calc(4vmin); /* Größere Schrift für das Kreuz */
-    font-weight: bold; /* Fettschrift für das Kreuz */
+    position: relative; /* Ermöglicht die Positionierung des Kreuzes innerhalb der Zelle */
 }
 
-/* Stil für die markierten Zellen */
-td.marked {
-    position: relative; /* Ermöglicht die Positionierung des Pseudo-Elements */
-}
-
-td.marked::after {
-    content: 'X'; /* Fügt das Kreuz hinzu */
+/* Stil für das Kreuz über dem Text */
+td .cross {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Zentriert das Kreuz */
     font-size: calc(4vmin); /* Größere Schrift für das Kreuz */
     font-weight: bold; /* Fettschrift für das Kreuz */
-    color: red; /* Farbe des Kreuzes */
+    color: rgba(255, 0, 0, 0.8); /* Leicht durchsichtige rote Farbe für das Kreuz */
     z-index: 1; /* Stellt sicher, dass das Kreuz über dem Text liegt */
     pointer-events: none; /* Verhindert, dass das Kreuz selbst klickbar ist */
 }
 
-/* Grundlegende Stile für die Tabelle (falls auf der Seite verwendet) */
+/* Grundlegende Stile für die Tabelle */
 table {
     width: 90vmin;
     height: 100vmin;
@@ -201,6 +192,7 @@ td {
     padding: 5px;
     box-sizing: border-box;
     cursor: pointer; /* Zeigt den Cursor als Hand an */
+    position: relative; /* Ermöglicht das Einfügen von Kind-Elementen */
 }
 
 tbody tr:nth-child(even) {
