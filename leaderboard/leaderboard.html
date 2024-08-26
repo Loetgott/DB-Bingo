@@ -7,30 +7,37 @@
     <title>DB-Bingo</title>
     <link rel="stylesheet" href="/style.css">
     <script src="login.js" defer></script>
+    <style>
+        #leaderboard-container {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Hier wird das Login-Formular eingebunden -->
-    <div id="login-container">
-        <!-- Login-Formular wird hier geladen -->
-    </div>
-
-    <!-- Dein weiteres JavaScript -->
     <script>
-        // Lade das Login-Formular aus der login.html Datei
-        fetch('../login.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('login-container').innerHTML = data;
-            });
+        window.onload = async function () {
+            console.log(getLoggedIn());
+            if (getLoggedIn()) {
+                document.getElementById('leaderboard-container').style.display = 'block';
+                loadLeaderboard();
+            } else {
+                // Zeige Warnung im Leaderboard-Container an
+                document.getElementById('leaderboard-container').innerHTML = `
+                    <div class="login-warning">
+                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+                    </div>
+                `;
+            }
+        };
     </script>
-    
+
     <nav>
         <ul class="navbar">
-            <li><a href="/table/table.html">Meine Tabelle</a></li>
-            <li><a href="/leaderboard/leaderboard.html">Leaderboard</a></li>
-            <li><a href="/profile/settings.html">Einstellungen</a></li>
-            <li><a href="/profile/logout.html">Logout</a></li>
+            <li><a href="../table/table.html">Meine Tabelle</a></li>
+            <li><a href="../profile/settings.html">Einstellungen</a></li>
+            <li><a href="../profile/logout.html">Logout</a></li>
         </ul>
     </nav>
 
