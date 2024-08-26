@@ -105,14 +105,12 @@ function getUserId() {
     return localStorage.getItem('currentUserUID');
 }
 
-// Funktionen global verfügbar machen
 window.setLoggedIn = setLoggedIn;
 window.getLoggedIn = getLoggedIn;
 window.setUserId = setUserId;
 window.getUserId = getUserId;
 window.saveData = saveData;
 
-// Dokumente abrufen
 async function getAllDocuments(collectionName) {
     try {
         const colRef = collection(db, collectionName);
@@ -130,38 +128,27 @@ async function getAllDocuments(collectionName) {
     }
 }
 
-function addUserToLeaderboard(username, points) {
-  users.push({ username, points });
+function addUserToLeaderboard(users) {
+    const tableBody = document.querySelector('#leaderboard tbody');
+    tableBody.innerHTML = '';
 
-  users.sort((a, b) => b.points - a.points);
+    users.forEach((user, index) => {
+        const newRow = document.createElement('tr');
+        const rankCell = document.createElement('td');
+        rankCell.textContent = index + 1;
 
-  const tableBody = document.querySelector('#leaderboard tbody');
-  tableBody.innerHTML = '';
+        const usernameCell = document.createElement('td');
+        usernameCell.textContent = user.username;
 
-  users.forEach((user, index) => {
-      const newRow = document.createElement('tr');
-      
-      const rankCell = document.createElement('td');
-      rankCell.textContent = index + 1;
+        const pointsCell = document.createElement('td');
+        pointsCell.textContent = user.points;
 
-      const usernameCell = document.createElement('td');
-      usernameCell.textContent = user.username;
-
-      const pointsCell = document.createElement('td');
-      pointsCell.textContent = user.points;
-
-      newRow.appendChild(rankCell);
-      newRow.appendChild(usernameCell);
-      newRow.appendChild(pointsCell);
-
-      // Anwenden der CSS-Klasse auf die neue Zeile
-      newRow.style.height = '30px';
-
-      // Füge die Zeile zum tbody hinzu
-      tableBody.appendChild(newRow);
-  });
+        newRow.appendChild(rankCell);
+        newRow.appendChild(usernameCell);
+        newRow.appendChild(pointsCell);
+        tableBody.appendChild(newRow);
+    });
 }
-
 
 // Leaderboard laden
 window.loadLeaderboard = async function () {
