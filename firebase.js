@@ -4,7 +4,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase
 
 // Firebase-Konfiguration
 const firebaseConfig = {
-  apiKey: "AIzaSyA18kd_beDXjsZr_doXzMchPKTuChQUXlA",
+  apiKey: NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "db-bingo.firebaseapp.com",
   projectId: "db-bingo",
   storageBucket: "db-bingo.appspot.com",
