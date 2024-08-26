@@ -344,7 +344,6 @@ table, th, td {
     font-size: 16px;
 }
 
-
 /* Tabelle mit Leaderboard */
 #leaderboard {
     width: 100%;
@@ -363,12 +362,17 @@ table, th, td {
 }
 
 #leaderboard td {
-    height: 30px; /* Setze die Höhe der Zeilen auf 30px */
+    height: 30px; /* Setze die Höhe der Zellen auf 30px */
 }
 
 /* Optional: Spezifische Regel für die Rang-Spalte */
 #leaderboard th:first-child, #leaderboard td:first-child {
     width: 50px;
     text-align: center; /* Zentriere den Text in der Rang-Spalte */
+}
+
+/* Setze die Höhe der Zeilen auf 30px */
+#leaderboard tr {
+    height: 30px;
 }
 

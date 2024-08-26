@@ -146,7 +146,6 @@ function addUserToLeaderboard(users) {
         newRow.appendChild(rankCell);
         newRow.appendChild(usernameCell);
         newRow.appendChild(pointsCell);
-        newRow.style.height = "20px";
         tableBody.appendChild(newRow);
     });
 }
