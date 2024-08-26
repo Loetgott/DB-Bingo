@@ -170,24 +170,28 @@ window.loadLeaderboard = async function () {
         console.error("Fehler beim Laden des Leaderboards: ", error);
     }
 };
+
+import { auth } from './firebase.js'; // Importiere auth aus firebase.js
+import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
 window.changePassword = async function(oldPassword, newPassword) {
-    var user = firebase.auth().currentUser;
+    var user = auth.currentUser;
     var email = user.email;
 
     // Re-Authentifizierung des Benutzers mit dem alten Passwort
-    var credential = firebase.auth.EmailAuthProvider.credential(email, oldPassword);
+    var credential = EmailAuthProvider.credential(email, oldPassword);
 
-    user.reauthenticateWithCredential(credential).then(() => {
+    try {
+        await reauthenticateWithCredential(user, credential);
         // Re-Authentifizierung erfolgreich, neues Passwort setzen
-        user.updatePassword(newPassword).then(() => {
-            console.log('Passwort erfolgreich geändert.');
-            // Zeige dem Benutzer eine Erfolgsmeldung an
-        }).catch((error) => {
+        await updatePassword(user, newPassword);
+        console.log('Passwort erfolgreich geändert.');
+        // Zeige dem Benutzer eine Erfolgsmeldung an
+    } catch (error) {
+        if (error.code === 'auth/wrong-password') {
+            console.error('Das alte Passwort ist falsch.');
+        } else {
             console.error('Fehler beim Ändern des Passworts:', error);
-            // Fehlerbehandlung, z.B. wenn das neue Passwort nicht den Anforderungen entspricht
-        });
-    }).catch((error) => {
-        console.error('Fehler bei der Re-Authentifizierung:', error);
-        // Fehlerbehandlung, z.B. wenn das alte Passwort falsch ist
-    });
-}
+        }
+    }
+};
