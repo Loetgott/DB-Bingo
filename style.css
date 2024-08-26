@@ -344,3 +344,30 @@ table, th, td {
     margin-top: 10px;
     font-size: 16px;
 }
+
+
+/* Stil für die Tabelle des Leaderboards */
+#leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#leaderboard th, #leaderboard td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#leaderboard th {
+    background-color: #e61212; /* Hintergrundfarbe für Header */
+    color: white;
+}
+
+#leaderboard tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#leaderboard tbody tr:hover {
+    background-color: #e0e0e0;
+}
