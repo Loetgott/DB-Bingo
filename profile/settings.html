@@ -85,7 +85,6 @@
                 saveData(getUserId(), "name", name)
                 document.getElementById('message').style.color = 'green';
                 document.getElementById('message').innerText = 'Name erfolgreich gespeichert!';
-                window.location.href="passwordChangeSucces.html";
             } catch (error) {
                 console.error("Fehler beim Speichern des Namens:", error);
                 document.getElementById('message').style.color = 'red';

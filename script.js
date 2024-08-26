@@ -187,6 +187,7 @@ window.changePassword = async function(oldPassword, newPassword) {
         await updatePassword(user, newPassword);
         console.log('Passwort erfolgreich geändert.');
         // Zeige dem Benutzer eine Erfolgsmeldung an
+        window.location.href="/profile/passwordChangeSucces.html";
     } catch (error) {
         if (error.code === 'auth/wrong-password') {
             console.error('Das alte Passwort ist falsch.');
