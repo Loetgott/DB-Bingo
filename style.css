@@ -345,28 +345,28 @@ table, th, td {
 }
 
 
-/* Stil für die Tabelle des Leaderboards */
 #leaderboard {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    width: 100%; /* Stellt sicher, dass die Tabelle die volle Breite nutzt */
+    border-collapse: collapse; /* Entfernt die Zwischenräume zwischen den Zellen */
 }
 
-#leaderboard th, #leaderboard td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+#leaderboard th,
+#leaderboard td {
+    padding: 5px 10px; /* Verringerte Polsterung für eine geringere Zeilenhöhe */
+    text-align: center; /* Zentriert den Text in allen Zellen */
 }
 
-#leaderboard th {
-    background-color: #e61212; /* Hintergrundfarbe für Header */
-    color: white;
+#leaderboard th:first-child,
+#leaderboard td:first-child {
+    width: 50px; /* Macht die Rangspalte schmaler */
 }
 
-#leaderboard tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+#leaderboard tr {
+    height: 30px; /* Verringerte Zeilenhöhe */
+    line-height: 1; /* Verringert den Zeilenabstand innerhalb der Zellen */
 }
 
-#leaderboard tbody tr:hover {
-    background-color: #e0e0e0;
+#leaderboard tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternierende Hintergrundfarbe für bessere Lesbarkeit */
 }
+
