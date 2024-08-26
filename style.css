@@ -345,28 +345,30 @@ table, th, td {
 }
 
 
+/* Tabelle mit Leaderboard */
 #leaderboard {
-    width: 100%; /* Stellt sicher, dass die Tabelle die volle Breite nutzt */
-    border-collapse: collapse; /* Entfernt die Zwischenräume zwischen den Zellen */
+    width: 100%;
+    border-collapse: collapse;
 }
 
-#leaderboard th,
+#leaderboard th, #leaderboard td {
+    padding: 5px 10px;
+    text-align: left;
+}
+
+#leaderboard th {
+    width: 50px; /* Setze eine maximale Breite für die Rang-Spalte */
+    font-weight: bold;
+    text-align: center; /* Zentriere den Text in der Rang-Spalte */
+}
+
 #leaderboard td {
-    padding: 5px 10px; /* Verringerte Polsterung für eine geringere Zeilenhöhe */
-    text-align: center; /* Zentriert den Text in allen Zellen */
+    height: 30px; /* Setze die Höhe der Zeilen auf 30px */
 }
 
-#leaderboard th:first-child,
-#leaderboard td:first-child {
-    width: 50px; /* Macht die Rangspalte schmaler */
-}
-
-#leaderboard tr {
-    height: 30px; /* Verringerte Zeilenhöhe */
-    line-height: 1; /* Verringert den Zeilenabstand innerhalb der Zellen */
-}
-
-#leaderboard tr:nth-child(even) {
-    background-color: #f2f2f2; /* Alternierende Hintergrundfarbe für bessere Lesbarkeit */
+/* Optional: Spezifische Regel für die Rang-Spalte */
+#leaderboard th:first-child, #leaderboard td:first-child {
+    width: 50px;
+    text-align: center; /* Zentriere den Text in der Rang-Spalte */
 }
 

@@ -130,28 +130,38 @@ async function getAllDocuments(collectionName) {
     }
 }
 
-// Funktion zum Hinzufügen eines Benutzers
-function addUserToLeaderboard(users) {
-    const tableBody = document.querySelector('#leaderboard tbody');
-    tableBody.innerHTML = '';
+function addUserToLeaderboard(username, points) {
+  users.push({ username, points });
 
-    users.forEach((user, index) => {
-        const newRow = document.createElement('tr');
-        const rankCell = document.createElement('td');
-        rankCell.textContent = index + 1;
+  users.sort((a, b) => b.points - a.points);
 
-        const usernameCell = document.createElement('td');
-        usernameCell.textContent = user.username;
+  const tableBody = document.querySelector('#leaderboard tbody');
+  tableBody.innerHTML = '';
 
-        const pointsCell = document.createElement('td');
-        pointsCell.textContent = user.points;
+  users.forEach((user, index) => {
+      const newRow = document.createElement('tr');
+      
+      const rankCell = document.createElement('td');
+      rankCell.textContent = index + 1;
 
-        newRow.appendChild(rankCell);
-        newRow.appendChild(usernameCell);
-        newRow.appendChild(pointsCell);
-        tableBody.appendChild(newRow);
-    });
+      const usernameCell = document.createElement('td');
+      usernameCell.textContent = user.username;
+
+      const pointsCell = document.createElement('td');
+      pointsCell.textContent = user.points;
+
+      newRow.appendChild(rankCell);
+      newRow.appendChild(usernameCell);
+      newRow.appendChild(pointsCell);
+
+      // Anwenden der CSS-Klasse auf die neue Zeile
+      newRow.style.height = '30px';
+
+      // Füge die Zeile zum tbody hinzu
+      tableBody.appendChild(newRow);
+  });
 }
+
 
 // Leaderboard laden
 window.loadLeaderboard = async function () {
