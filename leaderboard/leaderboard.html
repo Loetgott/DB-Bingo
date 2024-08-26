@@ -16,19 +16,33 @@
 <body>
     <script type="module" src="../script.js"></script>
     <script>
+        // Debugging-Informationen
+        console.log('Script geladen.');
+
         window.onload = async function () {
-            console.log(getLoggedIn());
-            if (getLoggedIn()) {
+            console.log('Seite geladen. Überprüfen des Login-Status...');
+
+            const loggedIn = getLoggedIn();
+            console.log('Login Status:', loggedIn);
+
+            if (loggedIn) {
+                console.log('Benutzer ist eingeloggt. Leaderboard wird angezeigt.');
                 document.getElementById('leaderboard-container').style.display = 'block';
-                loadLeaderboard();
+                await loadLeaderboard();
             } else {
-                // Zeige Warnung im Leaderboard-Container an
-                document.getElementById('leaderboard-container').innerHTML = `
-                    <div class="login-warning">
-                        <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
-                        <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
-                    </div>
-                `;
+                console.log('Benutzer ist nicht eingeloggt. Zeige Login-Warnung an.');
+
+                const container = document.getElementById('leaderboard-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="login-warning">
+                            <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
+                            <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
+                        </div>
+                    `;
+                } else {
+                    console.error('Element mit ID "leaderboard-container" nicht gefunden.');
+                }
             }
         };
     </script>
