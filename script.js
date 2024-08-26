@@ -197,7 +197,7 @@ function addUserToLeaderboard(username, points) {
 //addUserToLeaderboard('neuerBenutzer2', 150);
 //addUserToLeaderboard('neuerBenutzer3', 90);
 
-async function loadLeaderboard() {
+windows.loadLeaderboard = async function() {
   try {
       const documents = await getAllDocuments("player");
 
