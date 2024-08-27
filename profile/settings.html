@@ -93,10 +93,17 @@
         };
 
         // Event-Listener für das Ändern des Passworts
-        document.getElementById('savePasswordButton').onclick = function () {
+        document.getElementById('savePasswordButton').onclick = async function () {
             const oldPassword = document.getElementById('old-password').value;
             const newPassword = document.getElementById('new-password').value;
-            changePassword(oldPassword, newPassword);
+            await changePassword(oldPassword, newPassword);
+            if(getPasswordChangeSucces()){
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerText = 'Passwort erfolgreich geändert!';
+            }else{
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerText = 'Fehler beim Ändern des Passworts';
+            }
         };
 
         function togglePassword() {

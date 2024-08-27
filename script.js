@@ -174,6 +174,12 @@ window.loadLeaderboard = async function () {
 import { auth } from './firebase.js'; // Importiere auth aus firebase.js
 import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
+let passwordChangeSucces = false;
+
+window.getPasswordChangeSucces = function(){
+    return passwordChangeSucces;
+}
+
 window.changePassword = async function(oldPassword, newPassword) {
     var user = auth.currentUser;
     var email = user.email;
@@ -186,6 +192,7 @@ window.changePassword = async function(oldPassword, newPassword) {
         // Re-Authentifizierung erfolgreich, neues Passwort setzen
         await updatePassword(user, newPassword);
         console.log('Passwort erfolgreich geändert.');
+        passwordChangeSucces = true;
         // Zeige dem Benutzer eine Erfolgsmeldung an
         window.location.href="/profile/passwordChangeSucess.html";
     } catch (error) {
