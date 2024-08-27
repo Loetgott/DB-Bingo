@@ -74,7 +74,7 @@ function saveData(playerId, fieldName, fieldValue) {
     const docRef = doc(db, "player", String(playerId));
 
     return setDoc(docRef, {
-        [fieldName]: String(fieldValue),
+        [fieldName]: fieldValue,
         timestamp: Timestamp.fromDate(new Date())
     }, { merge: true })
         .then(() => {
