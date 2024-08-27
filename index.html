@@ -25,7 +25,7 @@
           setLoggedIn(true);
           setUserId(user.uid);
           await saveData(getUserId(), "name", String(email).split("@")[0]);
-          await saveData(getUserId(), "score", 0);
+          await saveData(getUserId(), "score", parseInt("0",10));
           for(let i = 1; i < 26; i++){
             await saveData(getUserId(),"d" + i, false);
           }
