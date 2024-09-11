@@ -344,10 +344,17 @@ table, th, td {
     font-size: 16px;
 }
 
-/* Tabelle mit Leaderboard */
+#leaderboard-container {
+    display: none; /* Verstecke den Container standardmäßig */
+    max-width: 600px; /* Maximalbreite der Tabelle auf 600px beschränken */
+    margin: 0 auto; /* Zentriere den Container horizontal */
+}
+
 #leaderboard {
-    width: 100%;
+    width: 100%; /* Setze die Breite der Tabelle auf 100% der Container-Breite */
+    max-width: 600px; /* Maximalbreite der Tabelle auf 600px beschränken */
     border-collapse: collapse;
+    table-layout: auto; /* Flexiblere Spaltenbreiten */
 }
 
 #leaderboard th, #leaderboard td {
@@ -356,18 +363,18 @@ table, th, td {
 }
 
 #leaderboard th {
-    width: 50px; /* Setze eine maximale Breite für die Rang-Spalte */
+    width: 40px; /* Setze eine maximale Breite für die Rang-Spalte */
     font-weight: bold;
     text-align: center; /* Zentriere den Text in der Rang-Spalte */
 }
 
 #leaderboard td {
-    height: 30px; /* Setze die Höhe der Zellen auf 30px */
+    height: 20px; /* Setze die Höhe der Zellen auf 20px */
 }
 
 /* Optional: Spezifische Regel für die Rang-Spalte */
 #leaderboard th:first-child, #leaderboard td:first-child {
-    width: 50px;
+    width: 50px; /* Setze eine maximale Breite für die Rang-Spalte */
     text-align: center; /* Zentriere den Text in der Rang-Spalte */
 }
 
@@ -375,6 +382,16 @@ table, th, td {
 #leaderboard tr {
     height: 30px;
 }
+
+/* Optional: Um die Breite der anderen Spalten besser anzupassen */
+#leaderboard th:nth-child(2), #leaderboard td:nth-child(2) {
+    width: 200px; /* Setze eine maximale Breite für die Benutzername-Spalte */
+}
+
+#leaderboard th:nth-child(3), #leaderboard td:nth-child(3) {
+    width: 100px; /* Setze eine maximale Breite für die Punkte-Spalte */
+}
+
 
 /* Ladeanimation-Spinner */
 #loading {
