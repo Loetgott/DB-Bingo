@@ -4,54 +4,12 @@
     <title>DB-Bingo</title>
     <link rel="stylesheet" href="/style.css">
     <script type = "module" src = "../script.js"></script>
-    <style>
-        /* Ladeanimation-Spinner */
-        #loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: white;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #e61212;
-            animation: spin 1s ease infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Tabelle standardmäßig verstecken */
-        #table {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        /* Tabelle sichtbar, wenn Daten geladen sind */
-        #table.visible {
-            display: table;
-            opacity: 1;
-        }
-    </style>
 </head>
 
 <body>
     <div id="loading">
         <div class="spinner"></div>
+        <div class="loading-text">Tabelle wird geladen...</div>
     </div>
     <nav>
         <ul class="navbar">
