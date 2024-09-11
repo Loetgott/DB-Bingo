@@ -31,12 +31,15 @@ window.loadTable = async function () {
                 element.textContent = value;
 
                 if (await getData("player", getUserId(), "d" + i) === 'true') {
+                    console.log("d " + i + " ist true!");
                     const cross = document.createElement('div');
                     cross.classList.add('cross');
                     cross.textContent = 'X';
                     element.appendChild(cross);
                     element.classList.add('marked');
                 } else {
+                    console.log("d " + i + " ist false?");
+                    console.log(await getData("player", getUserId(), "d" + i));
                     const cross = element.querySelector('.cross');
                     if (cross) {
                         element.removeChild(cross);
