@@ -30,7 +30,7 @@ window.loadTable = async function () {
                 const value = await getDeviationField("d" + i);
                 element.textContent = value;
 
-                if (await getData("player", getUserId(), "d" + i) == "true") {
+                if (await getData("player", getUserId(), "d" + i) == true) {
                     console.log("d" + i + " ist true!");
                     const cross = document.createElement('div');
                     cross.classList.add('cross');
@@ -74,6 +74,7 @@ window.getData = async function (collection, documentName, fieldName) {
 };
 
 function saveData(playerId, fieldName, fieldValue) {
+    console.log(typeof fieldValue, fieldValue);
     const docRef = doc(db, "player", String(playerId));
 
     return setDoc(docRef, {
