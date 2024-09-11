@@ -23,6 +23,8 @@ async function getDeviationField(devId) {
 }
 
 window.loadTable = async function () {
+    const tableElement = document.getElementById('table');
+
     for (let i = 1; i < 26; i++) {
         const element = document.getElementById("d" + i);
         if (element) {
@@ -53,6 +55,9 @@ window.loadTable = async function () {
             console.warn(`Element mit ID d${i} nicht gefunden.`);
         }
     }
+
+    // Sobald alle Daten geladen sind, die Tabelle anzeigen
+    tableElement.classList.add('visible');
 };
 
 window.getData = async function (collection, documentName, fieldName) {

@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DB-Bingo</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Tabelle standardmäßig verstecken */
+        #table {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Tabelle wird sichtbar, wenn Daten geladen sind */
+        #table.visible {
+            display: table;
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
