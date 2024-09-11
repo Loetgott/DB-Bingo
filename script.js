@@ -24,6 +24,7 @@ async function getDeviationField(devId) {
 
 window.loadTable = async function () {
     const tableElement = document.getElementById('table');
+    const loadingElement = document.getElementById('loading');
 
     for (let i = 1; i < 26; i++) {
         const element = document.getElementById("d" + i);
@@ -33,15 +34,12 @@ window.loadTable = async function () {
                 element.textContent = value;
 
                 if (await getData("player", getUserId(), "d" + i) == true) {
-                    console.log("d" + i + " ist true!");
                     const cross = document.createElement('div');
                     cross.classList.add('cross');
                     cross.textContent = 'X';
                     element.appendChild(cross);
                     element.classList.add('marked');
                 } else {
-                    console.log("d" + i + " ist false?");
-                    console.log(await getData("player", getUserId(), "d" + i));
                     const cross = element.querySelector('.cross');
                     if (cross) {
                         element.removeChild(cross);
@@ -51,13 +49,12 @@ window.loadTable = async function () {
             } catch (error) {
                 console.error(`Fehler beim Abrufen des Werts für d${i}:`, error);
             }
-        } else {
-            console.warn(`Element mit ID d${i} nicht gefunden.`);
         }
     }
 
-    // Sobald alle Daten geladen sind, die Tabelle anzeigen
-    tableElement.classList.add('visible');
+    // Sobald alle Daten geladen sind, Ladeanimation ausblenden und Tabelle sichtbar machen
+    loadingElement.style.display = 'none';  // Ladeanimation verstecken
+    tableElement.classList.add('visible');  // Tabelle anzeigen
 };
 
 window.getData = async function (collection, documentName, fieldName) {

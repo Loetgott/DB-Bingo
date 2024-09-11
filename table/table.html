@@ -1,12 +1,38 @@
-<!DOCTYPE html>
-<html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DB-Bingo</title>
     <link rel="stylesheet" href="/style.css">
     <style>
+        /* Ladeanimation-Spinner */
+        #loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #09f;
+            animation: spin 1s ease infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Tabelle standardmäßig verstecken */
         #table {
             display: none;
@@ -14,18 +40,17 @@
             transition: opacity 0.5s ease;
         }
 
-        /* Tabelle wird sichtbar, wenn Daten geladen sind */
+        /* Tabelle sichtbar, wenn Daten geladen sind */
         #table.visible {
             display: table;
             opacity: 1;
         }
     </style>
 </head>
-
 <body>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
-    <script type="module" src="../script.js"></script>
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
     <nav>
         <ul class="navbar">
             <li><a href="/table/table.html">Meine Tabelle</a></li>
@@ -77,48 +102,4 @@
             </table>
         </div>
     </div>
-
-    <script>
-        window.onload = async function () {
-            console.log(getLoggedIn());
-            if (getLoggedIn()) {
-                loadTable();
-
-                // Hinzufügen eines Klick-Events für alle Zellen
-                const cells = document.querySelectorAll('#table td');
-                cells.forEach(cell => {
-                    cell.addEventListener('click', async function () {
-                        if (this.classList.contains('marked')) {
-                            // Entfernen des Kreuzes
-                            const cross = this.querySelector('.cross');
-                            if (cross) this.removeChild(cross);
-                            this.classList.remove('marked');
-                            await saveData(getUserId(),this.id,false);
-                            await saveData(getUserId(),"score",parseInt(await getData("player",getUserId(),"score")) - 1);
-                        } else {
-                            // Hinzufügen des Kreuzes
-                            const cross = document.createElement('div');
-                            cross.classList.add('cross');
-                            cross.textContent = 'X';
-                            this.appendChild(cross);
-                            this.classList.add('marked');
-                            await saveData(getUserId(),this.id,true);
-                            await saveData(getUserId(),"score",parseInt(await getData("player",getUserId(),"score")) + 1);
-                        }
-                    });
-                });
-            } else {
-                const contentDiv = document.getElementById("content");
-                contentDiv.innerHTML = `
-            <div class="login-warning">
-                <h2>Sie müssen sich anmelden, um auf diese Seite zuzugreifen.</h2>
-                <p>Bitte <a href="../index.html">melden Sie sich an</a>, um fortzufahren.</p>
-            </div>
-        `;
-            }
-        };
-
-    </script>
 </body>
-
-</html>
