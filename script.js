@@ -140,13 +140,13 @@ function addUserToLeaderboard(users) {
 
     users.forEach((user, index) => {
         const newRow = document.createElement('tr');
-        const rankCell = document.createElement('th');
+        const rankCell = document.createElement('td');
         rankCell.textContent = index + 1;
 
-        const usernameCell = document.createElement('th');
+        const usernameCell = document.createElement('td');
         usernameCell.textContent = user.username;
 
-        const pointsCell = document.createElement('th');
+        const pointsCell = document.createElement('td');
         pointsCell.textContent = user.points;
 
         newRow.appendChild(rankCell);

@@ -367,7 +367,7 @@ table, th, td {
 }
 
 #leaderboard td {
-    height: auto; /* Entferne die feste Höhe */
+    height: 50px; /* Entferne die feste Höhe */
 }
 
 /* Spezifische Regel für die Rang-Spalte */
@@ -377,7 +377,7 @@ table, th, td {
 
 /* Zeilenhöhe nur durch Inhalt bestimmen, keine feste Höhe setzen */
 #leaderboard tr {
-    height: auto; /* Entferne die feste Zeilenhöhe */
+    height: 50px; /* Entferne die feste Zeilenhöhe */
 }
 
 /* Entferne alle Breitenangaben für die Spalten, wie gewünscht */
