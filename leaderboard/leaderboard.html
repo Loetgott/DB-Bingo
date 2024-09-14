@@ -71,6 +71,12 @@
             text-align: left;
         }
 
+        /* Schmälerung der ersten Spalte (Rang) */
+        th:first-child, td:first-child {
+            width: 50px; /* Setzt eine feste Breite für die erste Spalte */
+            text-align: center; /* Zentriert den Text innerhalb der Zelle */
+        }
+
         /* Responsive Design */
         tbody {
             display: block;
@@ -126,6 +132,11 @@
 
             tbody {
                 max-height: 200px; /* Reduziere die Höhe für kleinere Bildschirme */
+            }
+
+            /* Breite der ersten Spalte für kleine Bildschirme */
+            th:first-child, td:first-child {
+                width: 40px; /* Noch schmäler für mobile Geräte */
             }
         }
     </style>
