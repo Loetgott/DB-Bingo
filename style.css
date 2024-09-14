@@ -344,41 +344,6 @@ table, th, td {
     font-size: 16px;
 }
 
-#leaderboard-container {
-    display: none; /* Verstecke den Container standardmäßig */
-    max-width: 600px; /* Maximalbreite der Tabelle auf 600px beschränken */
-    margin: 0 auto; /* Zentriere den Container horizontal */
-}
-
-#leaderboard {
-    width: 100%; /* Setze die Breite der Tabelle auf 100% der Container-Breite */
-    border-collapse: collapse; /* Entfernt die doppelten Linien zwischen den Zellen */
-}
-
-#leaderboard th, #leaderboard td {
-    padding: 2px 10px; /* Weniger Padding, um die Zeilenhöhe zu verringern */
-    text-align: left;
-    line-height: 1.2; /* Reduziere die Zeilenhöhe */
-}
-
-#leaderboard th {
-    font-weight: bold;
-    text-align: center; /* Zentriere den Text in den Kopfzellen */
-}
-
-#leaderboard td {
-    height: auto; /* Entferne die feste Höhe und lasse die Höhe durch den Inhalt bestimmen */
-}
-
-/* Spezifische Regel für die Rang-Spalte */
-#leaderboard th:first-child, #leaderboard td:first-child {
-    text-align: center; /* Zentriere den Text in der Rang-Spalte */
-}
-
-/* Zeilenhöhe nur durch den Inhalt bestimmen, keine feste Höhe setzen */
-#leaderboard tr {
-    height: auto; /* Entferne die feste Zeilenhöhe */
-}
 
 
 /* Ladeanimation-Spinner */

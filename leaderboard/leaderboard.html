@@ -10,6 +10,45 @@
         #leaderboard-container {
             display: none; /* Verstecke den Container standardmäßig */
         }
+
+        /* Definiere die Tabelle */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px; /* Optional: Maximalbreite für die Tabelle */
+            margin: 0 auto; /* Zentriert die Tabelle */
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Feste Zeilenhöhe für die Tabelle */
+        tbody tr {
+            height: 50px; /* Feste Zeilenhöhe */
+        }
+
+        /* Begrenze die maximale Höhe der Tabelle */
+        tbody {
+            display: block;
+            max-height: 300px; /* Maximale Höhe des Tabellenkörpers */
+            overflow-y: auto; /* Scrollbar, falls mehr Zeilen vorhanden sind */
+        }
+
+        /* Kopfzeile der Tabelle fixieren */
+        thead {
+            display: table;
+            width: 100%;
+        }
+
+        /* Stelle sicher, dass der Tabellenkörper die gesamte Breite nutzt */
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* Stellt sicher, dass die Zellen gleichmäßig verteilt werden */
+        }
     </style>
 </head>
 
@@ -34,10 +73,27 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <!-- Beispielzeilen für die Tabelle -->
+                <tr>
+                    <td>1</td>
+                    <td>User1</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>User2</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>User3</td>
+                    <td>90</td>
+                </tr>
+                <!-- Weitere Zeilen -->
             </tbody>
         </table>
     </div>
+
     <script>
         window.onload = async function () {
             console.log('Seite geladen. Überprüfen des Login-Status...');
