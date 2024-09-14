@@ -7,47 +7,126 @@
     <title>DB-Bingo</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        #leaderboard-container {
-            display: none; /* Verstecke den Container standardmäßig */
+        /* Grundstil für die Seite */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f3f5;
+            color: #282d37;
         }
 
-        /* Definiere die Tabelle */
-        table {
-            border-collapse: collapse;
+        /* Stil für die Navigationsleiste */
+        nav {
+            position: fixed;
+            top: 0;
             width: 100%;
-            max-width: 800px; /* Optional: Maximalbreite für die Tabelle */
+            background-color: #e61212;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar li a:hover {
+            background-color: #c00;
+        }
+
+        /* Hauptinhalt */
+        .main-content {
+            margin-top: 60px; /* Platz für die fixierte Navbar */
+            padding: 5vmin;
+        }
+
+        /* Leaderboard-Tabelle */
+        table {
+            width: 100%; /* Fülle die Breite des Containers */
+            max-width: 800px; /* Maximalbreite, um keine horizontale Scroll-Leiste zu erzeugen */
             margin: 0 auto; /* Zentriert die Tabelle */
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
         th, td {
-            border: 1px solid black;
+            border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
 
-        /* Feste Zeilenhöhe für die Tabelle */
-        tbody tr {
-            height: 50px; /* Feste Zeilenhöhe */
-        }
-
-        /* Begrenze die maximale Höhe der Tabelle */
+        /* Responsive Design */
         tbody {
             display: block;
-            max-height: 300px; /* Maximale Höhe des Tabellenkörpers */
-            overflow-y: auto; /* Scrollbar, falls mehr Zeilen vorhanden sind */
-        }
-
-        /* Kopfzeile der Tabelle fixieren */
-        thead {
-            display: table;
+            max-height: 300px; /* Beschränkt die maximale Höhe, scrollbar wenn nötig */
+            overflow-y: auto;
             width: 100%;
         }
 
-        /* Stelle sicher, dass der Tabellenkörper die gesamte Breite nutzt */
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* Gleiche Spaltenbreite */
+        }
+
+        /* Feste Zeilenhöhe */
         tbody tr {
-            display: table;
-            width: 100%;
-            table-layout: fixed; /* Stellt sicher, dass die Zellen gleichmäßig verteilt werden */
+            height: 50px; /* Feste Höhe für jede Zeile */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody td:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Scrollbar anpassen (optional) */
+        tbody::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        tbody::-webkit-scrollbar-thumb {
+            background-color: #c00;
+            border-radius: 4px;
+        }
+
+        /* Kein horizontales Scrollen */
+        html, body {
+            overflow-x: hidden;
+        }
+
+        /* Responsive Layout für kleine Bildschirme */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            tbody {
+                max-height: 200px; /* Reduziere die Höhe für kleinere Bildschirme */
+            }
         }
     </style>
 </head>
@@ -63,7 +142,7 @@
         </ul>
     </nav>
     <div id="leaderboard-container" class="main-content">
-        <h1>Leaderboard - coming soon</h1>
+        <h1>Leaderboard</h1>
         <table id="leaderboard">
             <thead>
                 <tr>
@@ -73,7 +152,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Beispielzeilen für die Tabelle -->
                 <tr>
                     <td>1</td>
                     <td>User1</td>
