@@ -57,18 +57,20 @@
 
         /* Leaderboard-Tabelle */
         table {
-            width: 100%; /* Fülle die Breite des Containers */
-            max-width: 800px; /* Maximalbreite, um keine horizontale Scroll-Leiste zu erzeugen */
+            width: 100%;
+            max-width: 800px;
             margin: 0 auto; /* Zentriert die Tabelle */
             border-collapse: collapse;
             background-color: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            table-layout: fixed; /* Stellt sicher, dass alle Spalten feste Breiten haben */
         }
 
         th, td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
+            word-wrap: break-word;
         }
 
         /* Schmälerung der ersten Spalte (Rang) */
@@ -164,21 +166,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>User1</td>
-                    <td>100</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>User2</td>
-                    <td>95</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>User3</td>
-                    <td>90</td>
-                </tr>
-                <!-- Weitere Zeilen -->
             </tbody>
         </table>
     </div>
