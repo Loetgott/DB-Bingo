@@ -352,7 +352,7 @@ table, th, td {
 
 #leaderboard {
     width: 100%; /* Setze die Breite der Tabelle auf 100% der Container-Breite */
-    border-collapse: collapse;
+    border-collapse: collapse; /* Entfernt die doppelten Linien zwischen den Zellen */
 }
 
 #leaderboard th, #leaderboard td {
@@ -363,11 +363,11 @@ table, th, td {
 
 #leaderboard th {
     font-weight: bold;
-    text-align: center; /* Zentriere den Text in der Rang-Spalte */
+    text-align: center; /* Zentriere den Text in den Kopfzellen */
 }
 
 #leaderboard td {
-    height: 50px; /* Entferne die feste Höhe */
+    height: auto; /* Entferne die feste Höhe und lasse die Höhe durch den Inhalt bestimmen */
 }
 
 /* Spezifische Regel für die Rang-Spalte */
@@ -375,13 +375,10 @@ table, th, td {
     text-align: center; /* Zentriere den Text in der Rang-Spalte */
 }
 
-/* Zeilenhöhe nur durch Inhalt bestimmen, keine feste Höhe setzen */
+/* Zeilenhöhe nur durch den Inhalt bestimmen, keine feste Höhe setzen */
 #leaderboard tr {
-    height: 50px; /* Entferne die feste Zeilenhöhe */
+    height: auto; /* Entferne die feste Zeilenhöhe */
 }
-
-/* Entferne alle Breitenangaben für die Spalten, wie gewünscht */
-
 
 
 /* Ladeanimation-Spinner */
