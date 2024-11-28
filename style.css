@@ -393,3 +393,38 @@ table, th, td {
     display: table;
     opacity: 1;
 }
+
+/* Mobile spezifische Anpassungen */
+@media screen and (max-width: 600px) {
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #e61212;
+        z-index: 1000;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-evenly; /* Gleichmäßige Verteilung der Links */
+        align-items: center;
+        flex-wrap: nowrap; /* Verhindert den Umbruch der Elemente */
+    }
+
+    .navbar li {
+        float: none; /* Entfernt das Float-Verhalten */
+        margin: 0 5px; /* Abstand zwischen den Links */
+    }
+
+    .navbar li a {
+        font-size: 12px; /* Reduziert die Schriftgröße */
+        padding: 10px 15px; /* Weniger Padding, um Platz zu sparen */
+        white-space: nowrap; /* Verhindert Umbruch */
+    }
+
+    .account-menu #account-icon {
+        padding: 10px 15px;
+        font-size: 14px; /* Kleinere Schriftgröße für das Account-Icon */
+    }
+}
