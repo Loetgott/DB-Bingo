@@ -7,7 +7,6 @@
     <title>DB-Bingo</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        /* Grundstil für die Seite */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -51,51 +50,68 @@
 
         /* Hauptinhalt */
         .main-content {
-            margin-top: 60px; /* Platz für die fixierte Navbar */
+            margin-top: 60px;
+            /* Platz für die fixierte Navbar */
             padding: 5vmin;
         }
 
-        /* Leaderboard-Tabelle */
+        /* Grundstil für die Leaderboard-Seite */
+        #leaderboard-container {
+            display: none;
+            /* Wird standardmäßig ausgeblendet, wenn der Benutzer nicht eingeloggt ist */
+            padding: 5vmin;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #leaderboard-container h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #282d37;
+            margin-bottom: 20px;
+        }
+
+        /* Tabelle */
+        /* Tabelle */
         table {
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto; /* Zentriert die Tabelle */
+            table-layout: fixed;
+            /* Stellt sicher, dass alle Spalten gleichmäßig verteilt sind */
             border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            table-layout: fixed; /* Stellt sicher, dass alle Spalten feste Breiten haben */
+            margin: 20px 0;
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+        /* Kopfzeilen (th) und Zellen (td) */
+        th,
+        td {
+            padding: 8px;
             text-align: left;
+            border: 1px solid #ddd;
             word-wrap: break-word;
+            /* Verhindert das Überlaufen von langen Wörtern */
         }
 
-        /* Schmälerung der ersten Spalte (Rang) */
-        th:first-child, td:first-child {
-            width: 50px; /* Setzt eine feste Breite für die erste Spalte */
-            text-align: center; /* Zentriert den Text innerhalb der Zelle */
+        /* Kopfzeilen Hintergrund */
+        th {
+            background-color: #e61212;
+            color: white;
+            font-size: 1.1em;
         }
 
-        /* Responsive Design */
-        tbody {
-            display: block;
-            max-height: 300px; /* Beschränkt die maximale Höhe, scrollbar wenn nötig */
-            overflow-y: auto;
-            width: 100%;
+        /* Tabellenzellen Hintergrund */
+        td {
+            font-size: 1.2em;
         }
 
-        thead, tbody tr {
-            display: table;
-            width: 100%;
-            table-layout: fixed; /* Gleiche Spaltenbreite */
+        /* Hover-Effekt für Tabellenzellen */
+        tbody td:hover {
+            background-color: #f1f1f1;
         }
 
-        /* Feste Zeilenhöhe */
         tbody tr {
-            height: 50px; /* Feste Höhe für jede Zeile */
+            height: 50px;
+            /* Feste Höhe für jede Zeile */
         }
 
         tbody tr:nth-child(even) {
@@ -111,35 +127,31 @@
             width: 8px;
         }
 
-        tbody::-webkit-scrollbar-thumb {
-            background-color: #c00;
-            border-radius: 4px;
+        /* Stil für die Login-Warnung */
+        .login-warning {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Kein horizontales Scrollen */
-        html, body {
-            overflow-x: hidden;
+        .login-warning h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
         }
 
-        /* Responsive Layout für kleine Bildschirme */
-        @media (max-width: 768px) {
-            table {
-                width: 100%;
-            }
+        .login-warning p {
+            margin-top: 0;
+        }
 
-            th, td {
-                font-size: 14px;
-                padding: 8px;
-            }
+        .login-warning a {
+            color: #e61212;
+            text-decoration: underline;
+        }
 
-            tbody {
-                max-height: 200px; /* Reduziere die Höhe für kleinere Bildschirme */
-            }
-
-            /* Breite der ersten Spalte für kleine Bildschirme */
-            th:first-child, td:first-child {
-                width: 40px; /* Noch schmäler für mobile Geräte */
-            }
+        .login-warning a:hover {
+            color: #c00;
         }
     </style>
 </head>
@@ -174,7 +186,7 @@
     <script>
         window.onload = async function () {
             console.log('Seite geladen. Überprüfen des Login-Status...');
-            
+
             const loggedIn = getLoggedIn();
             console.log('Login Status:', loggedIn);
 
@@ -184,7 +196,7 @@
                 await loadLeaderboard();
             } else {
                 console.log('Benutzer ist nicht eingeloggt. Zeige Login-Warnung an.');
-                
+
                 const container = document.getElementById('leaderboard-container');
                 if (container) {
                     container.style.display = 'block'; // Stelle sicher, dass der Container angezeigt wird
