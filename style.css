@@ -9,12 +9,16 @@ body {
 
 /* Stil für die Navigationsleiste */
 nav {
-    position: fixed; /* Fixiert die Leiste oben */
+    position: fixed;
+    /* Fixiert die Leiste oben */
     top: 0;
     width: 100%;
-    background-color: #e61212; /* Hintergrundfarbe der Leiste */
-    z-index: 1000; /* Stellt sicher, dass die Leiste über anderen Inhalten liegt */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Schatteneffekt nach unten */
+    background-color: #e61212;
+    /* Hintergrundfarbe der Leiste */
+    z-index: 1000;
+    /* Stellt sicher, dass die Leiste über anderen Inhalten liegt */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Schatteneffekt nach unten */
 }
 
 .navbar {
@@ -47,7 +51,8 @@ nav {
 /* Stil für den Login-Container */
 .login-container {
     max-width: 400px;
-    margin: 100px auto; /* Zentriert den Container */
+    margin: 100px auto;
+    /* Zentriert den Container */
     padding: 20px;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -67,7 +72,8 @@ nav {
 
 /* Stil für den Passwort-Container */
 .password-container {
-    position: relative; /* Erlaubt die absolute Positionierung des Buttons innerhalb des Containers */
+    position: relative;
+    /* Erlaubt die absolute Positionierung des Buttons innerhalb des Containers */
 }
 
 .login-container input {
@@ -76,16 +82,18 @@ nav {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 94.5%; /* Passt die Breite des Passwortfelds an */
+    width: 94.5%;
+    /* Passt die Breite des Passwortfelds an */
 }
 
 .login-container .password-container input {
-    width: 100%; /* Setzt die Breite des Passwortfelds auf 100% des Containers */
+    width: 100%;
+    /* Setzt die Breite des Passwortfelds auf 100% des Containers */
 }
 
 .login-container .password-container .show-password {
     position: absolute;
-    right:2px;
+    right: 2px;
     top: 21.5%;
     transform: translateY(-50%);
     background: none;
@@ -120,16 +128,21 @@ nav {
 /* Stil für die Login-Warnung */
 .login-warning {
     max-width: 400px;
-    margin: 100px auto; /* Zentriert den Container */
+    margin: 100px auto;
+    /* Zentriert den Container */
     padding: 20px;
-    background-color: white; /* Hintergrundfarbe gleich wie bei Login-Container */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Schatten wie beim Login-Container */
-    border-radius: 8px; /* Gleiche Abrundung wie beim Login-Container */
+    background-color: white;
+    /* Hintergrundfarbe gleich wie bei Login-Container */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Schatten wie beim Login-Container */
+    border-radius: 8px;
+    /* Gleiche Abrundung wie beim Login-Container */
     text-align: center;
 }
 
 .login-warning h2 {
-    margin-bottom: 20px; /* Gleicher Abstand wie beim Login-Container */
+    margin-bottom: 20px;
+    /* Gleicher Abstand wie beim Login-Container */
 }
 
 .login-warning p {
@@ -137,23 +150,27 @@ nav {
 }
 
 .login-warning a {
-    color: #e61212; /* Gleiche Farbe wie der Login-Button */
+    color: #e61212;
+    /* Gleiche Farbe wie der Login-Button */
     text-decoration: underline;
 }
 
-.login-container a{
-    color: #e61212; /* Gleiche Farbe wie der Login-Button */
+.login-container a {
+    color: #e61212;
+    /* Gleiche Farbe wie der Login-Button */
     text-decoration: underline;
 }
 
 .login-warning a:hover {
-    color: #c00; /* Gleicher Hover-Effekt wie beim Login-Button */
+    color: #c00;
+    /* Gleicher Hover-Effekt wie beim Login-Button */
 }
 
 /* Stil für die markierten Zellen */
 /* Stil für die markierten Zellen */
 td.marked {
-    position: relative; /* Ermöglicht die Positionierung des Kreuzes innerhalb der Zelle */
+    position: relative;
+    /* Ermöglicht die Positionierung des Kreuzes innerhalb der Zelle */
 }
 
 /* Stil für das Kreuz über dem Text */
@@ -161,15 +178,23 @@ td .cross {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Zentriert das Kreuz und dreht es */
-    font-size: calc(15vmin); /* Größere Schrift für das Kreuz */
-    font-weight: bold; /* Fettschrift für das Kreuz */
-    color: rgba(255, 0, 0, 0.5); /* Leicht durchsichtige rote Farbe für das Kreuz */
-    z-index: 1; /* Stellt sicher, dass das Kreuz über dem Text liegt */
-    pointer-events: none; /* Verhindert, dass das Kreuz selbst klickbar ist */
-    text-shadow: 
-        0 0 0.1em rgba(255, 0, 0, 0.8), /* Schatten für die Ecken */
-        0 0 0.2em rgba(255, 0, 0, 0.8); /* Schatten für die Ecken */
+    transform: translate(-50%, -50%);
+    /* Zentriert das Kreuz und dreht es */
+    font-size: calc(15vmin);
+    /* Größere Schrift für das Kreuz */
+    font-weight: bold;
+    /* Fettschrift für das Kreuz */
+    color: rgba(255, 0, 0, 0.5);
+    /* Leicht durchsichtige rote Farbe für das Kreuz */
+    z-index: 1;
+    /* Stellt sicher, dass das Kreuz über dem Text liegt */
+    pointer-events: none;
+    /* Verhindert, dass das Kreuz selbst klickbar ist */
+    text-shadow:
+        0 0 0.1em rgba(255, 0, 0, 0.8),
+        /* Schatten für die Ecken */
+        0 0 0.2em rgba(255, 0, 0, 0.8);
+    /* Schatten für die Ecken */
 }
 
 /* Grundlegende Stile für die Tabelle */
@@ -194,8 +219,10 @@ td {
     align-items: center;
     padding: 5px;
     box-sizing: border-box;
-    cursor: pointer; /* Zeigt den Cursor als Hand an */
-    position: relative; /* Ermöglicht das Einfügen von Kind-Elementen */
+    cursor: pointer;
+    /* Zeigt den Cursor als Hand an */
+    position: relative;
+    /* Ermöglicht das Einfügen von Kind-Elementen */
 }
 
 tbody tr:nth-child(even) {
@@ -206,20 +233,25 @@ tbody td:hover {
     background-color: #e0e0e0;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #ddd;
 }
 
 
 .main-content {
-    margin-top: 60px; /* Platz für die fixe Navbar schaffen */
+    margin-top: 60px;
+    /* Platz für die fixe Navbar schaffen */
     padding: 5vmin;
 }
 
 /* Stil für das Account-Icon und das Dropdown-Menü */
 .account-menu {
-    float: right; /* Positioniert das Account-Icon auf der rechten Seite */
-    position: relative; /* Ermöglicht die absolute Positionierung des Dropdown-Menüs */
+    float: right;
+    /* Positioniert das Account-Icon auf der rechten Seite */
+    position: relative;
+    /* Ermöglicht die absolute Positionierung des Dropdown-Menüs */
 }
 
 .account-menu #account-icon {
@@ -237,7 +269,8 @@ table, th, td {
 }
 
 .profile-dropdown {
-    display: none; /* Versteckt das Menü standardmäßig */
+    display: none;
+    /* Versteckt das Menü standardmäßig */
     position: absolute;
     right: 0;
     background-color: white;
@@ -248,7 +281,8 @@ table, th, td {
 }
 
 .profile-dropdown li {
-    float: none; /* Entfernt das linke Ausrichten */
+    float: none;
+    /* Entfernt das linke Ausrichten */
 }
 
 .profile-dropdown li a {
@@ -264,13 +298,15 @@ table, th, td {
 }
 
 .account-menu:hover .profile-dropdown {
-    display: block; /* Zeigt das Dropdown-Menü bei Hover */
+    display: block;
+    /* Zeigt das Dropdown-Menü bei Hover */
 }
 
 /* Stil für den Profil-Einstellungs-Container */
 .settings-container {
     max-width: 400px;
-    margin: 100px auto; /* Zentriert den Container */
+    margin: 100px auto;
+    /* Zentriert den Container */
     padding: 20px;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -303,22 +339,25 @@ table, th, td {
 
 .form-group input,
 .password-container input {
-    margin-bottom:10px;
-    width: 100%; /* Vollständig ausfüllend */
+    margin-bottom: 10px;
+    width: 100%;
+    /* Vollständig ausfüllend */
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box; /* Bezieht Padding und Border in die Breite ein */
+    box-sizing: border-box;
+    /* Bezieht Padding und Border in die Breite ein */
 }
 
 /* Stil für den Passwort-Container */
 .password-container {
-    position: relative; /* Ermöglicht die absolute Positionierung des Passwort-Anzeigen-Buttons */
+    position: relative;
+    /* Ermöglicht die absolute Positionierung des Passwort-Anzeigen-Buttons */
 }
 
 .password-container input {
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 /* Stil für den Speichern-Button */
@@ -395,6 +434,7 @@ table, th, td {
 }
 
 /* Mobile spezifische Anpassungen */
+/* Mobile spezifische Anpassungen */
 @media screen and (max-width: 600px) {
     nav {
         position: fixed;
@@ -407,32 +447,55 @@ table, th, td {
 
     .navbar {
         display: flex;
-        justify-content: space-between; /* Verteilt die Links gleichmäßig */
+        justify-content: space-between;
+        /* Verteilt die Links gleichmäßig */
         align-items: center;
-        flex-wrap: nowrap; /* Verhindert den Umbruch der Elemente */
-        padding: 0 10px; /* Fügt etwas Abstand an den Seiten hinzu */
+        flex-wrap: nowrap;
+        /* Verhindert den Umbruch der Elemente */
+        padding: 0 5px;
+        /* Fügt minimalen Abstand an den Seiten hinzu */
+        box-sizing: border-box;
+        /* Stellt sicher, dass der Padding-Abstand in die Gesamtbreite eingerechnet wird */
     }
 
     .navbar li {
-        float: none; /* Entfernt das Float-Verhalten */
-        margin: 0 5px; /* Abstand zwischen den Links */
+        margin: 0 3px;
+        /* Reduziert den Abstand zwischen den Links */
+        flex-shrink: 1;
+        /* Erlaubt es den Listenelementen, sich zu verkleinern, wenn nötig */
     }
 
     .navbar li a {
-        font-size: 12px; /* Reduziert die Schriftgröße */
-        padding: 8px 12px; /* Reduziert das Padding */
-        white-space: nowrap; /* Verhindert Umbruch */
+        font-size: 10px;
+        /* Noch kleinere Schriftgröße */
+        padding: 6px 10px;
+        /* Weiteres Reduzieren des Paddings */
+        white-space: nowrap;
+        /* Verhindert Umbruch */
         text-align: center;
+        overflow: hidden;
+        /* Verhindert, dass Text den Container überläuft */
+        text-overflow: ellipsis;
+        /* Kürzt den Text mit "..." ab, falls er zu lang ist */
+        max-width: 80px;
+        /* Begrenzt die Breite der Links */
     }
 
     .account-menu #account-icon {
-        padding: 8px 12px;
-        font-size: 14px; /* Kleinere Schriftgröße für das Account-Icon */
+        padding: 6px 10px;
+        font-size: 12px;
+        /* Kleinere Schriftgröße für das Account-Icon */
     }
 
-    /* Stil für das Dropdown-Menü (falls sichtbar) */
+    /* Stil für das Dropdown-Menü */
     .profile-dropdown {
-        min-width: 120px; /* Reduziert die Breite des Dropdowns */
+        min-width: 120px;
+        /* Reduziert die Breite des Dropdowns */
+    }
+
+    /* Verhindert, dass das Account-Menü den Bildschirm überschreitet */
+    .account-menu {
+        flex-shrink: 0;
+        /* Verhindert, dass das Account-Menü schrumpft */
     }
 }
-
