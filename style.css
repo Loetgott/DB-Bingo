@@ -407,9 +407,10 @@ table, th, td {
 
     .navbar {
         display: flex;
-        justify-content: space-evenly; /* Gleichmäßige Verteilung der Links */
+        justify-content: space-between; /* Verteilt die Links gleichmäßig */
         align-items: center;
         flex-wrap: nowrap; /* Verhindert den Umbruch der Elemente */
+        padding: 0 10px; /* Fügt etwas Abstand an den Seiten hinzu */
     }
 
     .navbar li {
@@ -419,12 +420,19 @@ table, th, td {
 
     .navbar li a {
         font-size: 12px; /* Reduziert die Schriftgröße */
-        padding: 10px 15px; /* Weniger Padding, um Platz zu sparen */
+        padding: 8px 12px; /* Reduziert das Padding */
         white-space: nowrap; /* Verhindert Umbruch */
+        text-align: center;
     }
 
     .account-menu #account-icon {
-        padding: 10px 15px;
+        padding: 8px 12px;
         font-size: 14px; /* Kleinere Schriftgröße für das Account-Icon */
     }
+
+    /* Stil für das Dropdown-Menü (falls sichtbar) */
+    .profile-dropdown {
+        min-width: 120px; /* Reduziert die Breite des Dropdowns */
+    }
 }
+
