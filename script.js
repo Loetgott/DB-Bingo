@@ -158,6 +158,8 @@ function addUserToLeaderboard(users) {
 
 // Leaderboard laden
 window.loadLeaderboard = async function () {
+    const tableElement = document.getElementById('table');
+    const loadingElement = document.getElementById('loading');
     try {
         const documents = await getAllDocuments("player");
 
@@ -175,6 +177,8 @@ window.loadLeaderboard = async function () {
     } catch (error) {
         console.error("Fehler beim Laden des Leaderboards: ", error);
     }
+    loadingElement.style.display = 'none';  // Ladeanimation verstecken
+    tableElement.classList.add('visible');  // Tabelle anzeigen
 };
 
 import { auth } from './firebase.js'; // Importiere auth aus firebase.js
